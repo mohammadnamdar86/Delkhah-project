@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تماس با موج مانا | ارتباط و مشاوره خدمات مجالس ترحیم</title>
+  <meta name="description" content="برای دریافت مشاوره، هماهنگی خدمات مجالس ترحیم، ثبت درخواست و ارتباط با مجموعه موج مانا از طریق صفحه تماس با ما اقدام کنید." />
+  <meta name="keywords" content="تماس با موج مانا, مشاوره خدمات ترحیم, شماره تماس خدمات ترحیم, ثبت درخواست مراسم ختم" />
+  <link href="output.css" rel="stylesheet" />
+
+  <style>
+    html { scroll-behavior: smooth; }
+
+    body {
+      background:
+        radial-gradient(circle at top center, rgba(212,175,55,0.08), transparent 24%),
+        radial-gradient(circle at 85% 15%, rgba(212,175,55,0.04), transparent 18%),
+        linear-gradient(to bottom, #050505, #080808, #030303);
+      color: white;
+    }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0a0a0a; }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(to bottom, #d4af37, #8c6b16);
+      border-radius: 20px;
+    }
+
+    .gold-gradient-text {
+      background: linear-gradient(90deg, #fff8e6 0%, #f6dc8a 20%, #d4af37 45%, #a87d1e 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 4px 24px rgba(212,175,55,.12);
+    }
+
+    .glass-card {
+      background: rgba(17,17,17,.72);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,.06);
+      box-shadow: 0 10px 40px rgba(0,0,0,.25);
+    }
+
+    .gold-shadow {
+      box-shadow: 0 10px 45px rgba(212,175,55,.10);
+    }
+
+    .gold-shadow-hover:hover {
+      box-shadow: 0 16px 55px rgba(212,175,55,.16);
+      transform: translateY(-4px);
+    }
+
+    .dropdown-menu {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      transition: all .28s ease;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .gold-line {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to left, transparent, rgba(212,175,55,.7), transparent);
+    }
+
+    .shine-btn {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .shine-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -120%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,.35), transparent);
+      transform: skewX(-20deg);
+      transition: .8s;
+      z-index: -1;
+    }
+
+    .shine-btn:hover::before {
+      right: 140%;
+    }
+
+    .contact-box {
+      background: linear-gradient(to bottom, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border: 1px solid rgba(255,255,255,.06);
+      backdrop-filter: blur(10px);
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.08);
+      color: white;
+      border-radius: 1rem;
+      padding: 14px 16px;
+      outline: none;
+      transition: all .25s ease;
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      border-color: rgba(212,175,55,.65);
+      box-shadow: 0 0 0 4px rgba(212,175,55,.10);
+      background: rgba(255,255,255,.045);
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: #9ca3af;
+    }
+
+    .hero-ring {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 999px;
+      border: 1px solid rgba(212,175,55,.08);
+      pointer-events: none;
+    }
+
+    .hero-ring.r1 { top: -110px; left: -80px; }
+    .hero-ring.r2 { top: -50px; left: -20px; width: 380px; height: 380px; }
+
+    .map-frame {
+      min-height: 100%;
+      background:
+        linear-gradient(to bottom, rgba(212,175,55,.05), rgba(255,255,255,.02)),
+        #111;
+      border: 1px solid rgba(255,255,255,.06);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .map-grid {
+      background-image:
+        linear-gradient(rgba(212,175,55,.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212,175,55,.05) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+  </style>
+</head>
+
+<body class="overflow-x-hidden font-vazir selection:bg-[#d4af37] selection:text-black">
+
+  <!-- HEADER -->
+  <header class="w-full px-5 md:px-10 bg-black/80 backdrop-blur-xl border-b border-[#d4af37]/10 flex items-center justify-between flex-wrap py-3 sticky top-0 z-50">
+    <ul class="flex flex-wrap justify-center md:justify-start gap-4 md:gap-8 relative items-center">
+      <li>
+        <a href="index.html" class="py-2 text-sm font-bold text-gray-300 border-b-2 border-transparent hover:border-[#d4af37] hover:text-white block transition-all">
+          خانه
+        </a>
+      </li>
+
+      <li class="relative dropdown">
+        <a href="tarhim-services.html" class="py-2 text-sm font-bold text-gray-300 border-b-2 border-transparent hover:border-[#d4af37] hover:text-white flex items-center gap-2 transition-all">
+          خدمات
+          <span class="text-[10px]">▼</span>
+        </a>
+
+        <ul class="dropdown-menu absolute right-0 top-full mt-3 w-72 bg-[#0b0b0b]/95 backdrop-blur-xl border border-[#d4af37]/20 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.45)] z-50 overflow-hidden">
+          <li><a href="tarhim-services.html" class="block px-5 py-3 text-sm text-gray-300 hover:bg-[#d4af37]/10 hover:text-white transition-all">خدمات مجالس ترحیم</a></li>
+          <li><a href="halva-khorma.html" class="block px-5 py-3 text-sm text-gray-300 hover:bg-[#d4af37]/10 hover:text-white transition-all">حلوا و خرما</a></li>
+          <li><a href="pack-service.html" class="block px-5 py-3 text-sm text-gray-300 hover:bg-[#d4af37]/10 hover:text-white transition-all">پک پذیرایی</a></li>
+          <li><a href="golarayi.html" class="block px-5 py-3 text-sm text-gray-300 hover:bg-[#d4af37]/10 hover:text-white transition-all">گل‌آرایی و تاج گل</a></li>
+          <li><a href="miz-yadbood.html" class="block px-5 py-3 text-sm text-gray-300 hover:bg-[#d4af37]/10 hover:text-white transition-all">میز یادبود</a></li>
+          <li><a href="madah-ghari.html" class="block px-5 py-3 text-sm text-gray-300 hover:bg-[#d4af37]/10 hover:text-white transition-all">مداح و قاری</a></li>
+        </ul>
+      </li>
+
+      <li><a href="gallery.html" class="py-2 text-sm font-bold text-gray-300 border-b-2 border-transparent hover:border-[#d4af37] hover:text-white block transition-all">گالری</a></li>
+      <li><a href="about.html" class="py-2 text-sm font-bold text-gray-300 border-b-2 border-transparent hover:border-[#d4af37] hover:text-white block transition-all">درباره ما</a></li>
+      <li><a href="contact.html" class="py-2 text-sm font-bold text-white border-b-2 border-[#d4af37] block transition-all">تماس با ما</a></li>
+      <li>
+        <a href="order.html" class="shine-btn py-2 px-5 rounded-full bg-[#d4af37] text-black text-sm font-bold hover:scale-105 transition-all block">
+          سفارش فوری
+        </a>
+      </li>
+    </ul>
+
+    <div style="direction:ltr" class="hidden md:block">
+      <a href="index.html" class="block hover:scale-105 transition-transform duration-500">
+        <img src="img/mog.png" alt="لوگو موج مانا" class="w-28 object-contain drop-shadow-[0_0_14px_rgba(212,175,55,0.55)]">
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden py-16 md:py-24">
+    <div class="hero-ring r1 hidden xl:block"></div>
+    <div class="hero-ring r2 hidden xl:block"></div>
+    <div class="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,.10),rgba(0,0,0,.68))]"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+        <div>
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#d4af37]/20 bg-[#d4af37]/5 text-[#d4af37] text-xs md:text-sm mb-6">
+            <span class="w-2 h-2 rounded-full bg-[#d4af37] animate-pulse"></span>
+            ارتباط، مشاوره و هماهنگی خدمات
+          </div>
+
+          <h1 class="text-4xl md:text-6xl font-extrabold leading-[1.8] md:leading-[1.55] gold-gradient-text mb-6">
+            تماس با موج مانا<br>
+            همراهی محترمانه و پاسخ‌گویی<br>
+            در زمان‌های مهم
+          </h1>
+
+          <p class="text-gray-300 text-sm md:text-base leading-8 md:leading-9 font-light text-justify mb-5">
+            اگر برای برگزاری مراسم ترحیم، دریافت مشاوره، هماهنگی خدمات یا ثبت درخواست نیاز به ارتباط با مجموعه دارید، می‌توانید از طریق راه‌های تماس زیر با <strong class="text-white">موج مانا</strong> در ارتباط باشید. تلاش ما بر این است که فرآیند پاسخ‌گویی، روشن، سریع و محترمانه باشد.
+          </p>
+
+          <p class="text-gray-400 text-sm md:text-base leading-8 md:leading-9 font-light text-justify">
+            در چنین روزهایی، سادگی در ارتباط و اطمینان در هماهنگی اهمیت زیادی دارد. به همین دلیل مسیرهای تماس به‌گونه‌ای در نظر گرفته شده‌اند که بتوانید متناسب با شرایط خود، راحت‌ترین روش را انتخاب کنید.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 mt-10">
+            <a href="tel:02126117883" class="shine-btn bg-gradient-to-r from-[#d4af37] to-[#f1d472] text-black font-bold px-8 py-4 rounded-full hover:scale-105 transition-all duration-300 text-center shadow-[0_0_35px_rgba(212,175,55,0.22)]" dir="ltr">
+              021-26117883
+            </a>
+            <a href="#contact-form" class="border border-[#d4af37] text-[#d4af37] font-bold px-8 py-4 rounded-full hover:bg-[#d4af37] hover:text-black transition-all duration-300 text-center">
+              ارسال پیام
+            </a>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="contact-box rounded-3xl p-6 gold-shadow-hover transition-all duration-300">
+            <div class="text-3xl mb-4 text-[#d4af37]">📞</div>
+            <h3 class="text-white font-bold mb-3">تلفن تماس</h3>
+            <a href="tel:02126117883" class="text-[#d4af37] text-lg font-bold hover:text-white transition-colors" dir="ltr">
+              021-26117883
+            </a>
+            <p class="text-gray-400 text-sm leading-7 mt-3">
+              مناسب برای هماهنگی سریع و دریافت اطلاعات اولیه
+            </p>
+          </div>
+
+          <div class="contact-box rounded-3xl p-6 gold-shadow-hover transition-all duration-300">
+            <div class="text-3xl mb-4 text-[#d4af37]">📱</div>
+            <h3 class="text-white font-bold mb-3">شماره همراه</h3>
+            <a href="tel:09121234567" class="text-[#d4af37] text-lg font-bold hover:text-white transition-colors" dir="ltr">
+              0912-123-4567
+            </a>
+            <p class="text-gray-400 text-sm leading-7 mt-3">
+              برای تماس مستقیم و هماهنگی نزدیک‌تر
+            </p>
+          </div>
+
+          <div class="contact-box rounded-3xl p-6 gold-shadow-hover transition-all duration-300">
+            <div class="text-3xl mb-4 text-[#d4af37]">⏰</div>
+            <h3 class="text-white font-bold mb-3">زمان پاسخ‌گویی</h3>
+            <p class="text-[#d4af37] text-lg font-bold">همه‌روزه</p>
+            <p class="text-gray-400 text-sm leading-7 mt-3">
+              برای پیگیری، مشاوره و هماهنگی خدمات
+            </p>
+          </div>
+
+          <div class="contact-box rounded-3xl p-6 gold-shadow-hover transition-all duration-300">
+            <div class="text-3xl mb-4 text-[#d4af37]">📍</div>
+            <h3 class="text-white font-bold mb-3">محدوده خدمات</h3>
+            <p class="text-[#d4af37] text-lg font-bold">با هماهنگی</p>
+            <p class="text-gray-400 text-sm leading-7 mt-3">
+              امکان بررسی محل مراسم و نوع خدمات موردنیاز
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT INFO -->
+  <section class="w-full py-20 px-6">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-3 gap-6">
+
+      <div class="glass-card rounded-[2rem] p-8 gold-shadow-hover transition-all duration-300">
+        <div class="text-4xl mb-5 text-[#d4af37]">🤝</div>
+        <h2 class="text-2xl font-extrabold text-white mb-4">مشاوره پیش از سفارش</h2>
+        <p class="text-gray-400 text-sm leading-8 font-light text-justify">
+          اگر هنوز برای انتخاب خدمات مناسب تصمیم نگرفته‌اید، می‌توانید پیش از ثبت سفارش با ما در ارتباط باشید تا با توجه به نوع مراسم، تعداد مهمانان و شرایط برگزاری، بهترین گزینه‌ها بررسی شوند.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-[2rem] p-8 gold-shadow-hover transition-all duration-300">
+        <div class="text-4xl mb-5 text-[#d4af37]">🕯️</div>
+        <h2 class="text-2xl font-extrabold text-white mb-4">هماهنگی محترمانه</h2>
+        <p class="text-gray-400 text-sm leading-8 font-light text-justify">
+          در موج مانا، ارتباط با خانواده‌ها صرفاً یک پاسخ‌گویی ساده نیست. تلاش ما این است که در تمام مراحل تماس، از لحن ارتباط تا نحوه ارائه اطلاعات، احترام و آرامش حفظ شود.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-[2rem] p-8 gold-shadow-hover transition-all duration-300">
+        <div class="text-4xl mb-5 text-[#d4af37]">⚜️</div>
+        <h2 class="text-2xl font-extrabold text-white mb-4">هماهنگی دقیق خدمات</h2>
+        <p class="text-gray-400 text-sm leading-8 font-light text-justify">
+          برای دریافت پاسخ دقیق‌تر، بهتر است هنگام تماس، اطلاعاتی مانند زمان مراسم، محل برگزاری، تعداد مهمانان و خدمات مدنظر خود را آماده داشته باشید تا هماهنگی‌ها سریع‌تر انجام شود.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FORM + MAP -->
+  <section id="contact-form" class="w-full py-24 px-6 bg-[#090909] border-y border-white/5">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 items-stretch">
+
+      <!-- FORM -->
+      <div class="glass-card rounded-[2rem] p-8 md:p-10 gold-shadow">
+        <div class="mb-8">
+          <div class="inline-flex items-center gap-2 text-[#d4af37] text-sm mb-4">
+            <span class="w-10 h-[1px] bg-[#d4af37]/60"></span>
+            فرم ارتباط با ما
+          </div>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">ارسال درخواست یا پیام</h2>
+          <p class="text-gray-400 text-sm md:text-base leading-8 font-light text-justify">
+            از طریق فرم زیر می‌توانید درخواست مشاوره، سوال یا اطلاعات اولیه مراسم را برای ما ارسال کنید.
+          </p>
+        </div>
+
+        <form class="space-y-5">
+          <div class="grid md:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-sm text-gray-300 mb-2">نام و نام خانوادگی</label>
+              <input type="text" class="form-input" placeholder="نام کامل خود را وارد کنید">
+            </div>
+
+            <div>
+              <label class="block text-sm text-gray-300 mb-2">شماره تماس</label>
+              <input type="tel" class="form-input" placeholder="مثلاً 0912xxxxxxx" dir="ltr">
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-sm text-gray-300 mb-2">نوع مراسم</label>
+              <select class="form-select">
+                <option>انتخاب کنید</option>
+                <option>مراسم ختم</option>
+                <option>سوم</option>
+                <option>هفتم</option>
+                <option>چهلم</option>
+                <option>سالگرد</option>
+                <option>یادبود</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-sm text-gray-300 mb-2">تعداد تقریبی مهمانان</label>
+              <select class="form-select">
+                <option>انتخاب کنید</option>
+                <option>کمتر از 50 نفر</option>
+                <option>50 تا 100 نفر</option>
+                <option>100 تا 200 نفر</option>
+                <option>بیش از 200 نفر</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-sm text-gray-300 mb-2">محل برگزاری</label>
+              <input type="text" class="form-input" placeholder="مثلاً مسجد، سالن یا بهشت‌زهرا">
+            </div>
+
+            <div>
+              <label class="block text-sm text-gray-300 mb-2">تاریخ تقریبی مراسم</label>
+              <input type="text" class="form-input" placeholder="مثلاً 1403/08/20">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm text-gray-300 mb-2">خدمات موردنیاز</label>
+            <div class="grid sm:grid-cols-2 gap-3 text-sm text-gray-300">
+              <label class="flex items-center gap-2 bg-white/3 border border-white/5 rounded-xl px-4 py-3">
+                <input type="checkbox" class="accent-[#d4af37]">
+                پذیرایی
+              </label>
+              <label class="flex items-center gap-2 bg-white/3 border border-white/5 rounded-xl px-4 py-3">
+                <input type="checkbox" class="accent-[#d4af37]">
+                حلوا و خرما
+              </label>
+              <label class="flex items-center gap-2 bg-white/3 border border-white/5 rounded-xl px-4 py-3">
+                <input type="checkbox" class="accent-[#d4af37]">
+                گل‌آرایی و تاج گل
+              </label>
+              <label class="flex items-center gap-2 bg-white/3 border border-white/5 rounded-xl px-4 py-3">
+                <input type="checkbox" class="accent-[#d4af37]">
+                میز یادبود
+              </label>
+              <label class="flex items-center gap-2 bg-white/3 border border-white/5 rounded-xl px-4 py-3">
+                <input type="checkbox" class="accent-[#d4af37]">
+                پک پذیرایی
+              </label>
+              <label class="flex items-center gap-2 bg-white/3 border border-white/5 rounded-xl px-4 py-3">
+                <input type="checkbox" class="accent-[#d4af37]">
+                مداح و قاری
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm text-gray-300 mb-2">توضیحات</label>
+            <textarea rows="6" class="form-textarea" placeholder="اگر توضیحی درباره نوع مراسم، زمان، محل یا نیازهای خاص دارید، اینجا بنویسید"></textarea>
+          </div>
+
+          <button type="submit" class="shine-btn w-full bg-[#d4af37] text-black font-bold py-4 rounded-2xl hover:scale-[1.01] transition-all">
+            ارسال درخواست
+          </button>
+        </form>
+      </div>
+
+      <!-- MAP / ADDRESS -->
+      <div class="space-y-6">
+        <div class="map-frame map-grid rounded-[2rem] p-8 md:p-10 gold-shadow min-h-[420px] flex flex-col justify-between">
+          <div>
+            <div class="inline-flex items-center gap-2 text-[#d4af37] text-sm mb-4">
+              <span class="w-10 h-[1px] bg-[#d4af37]/60"></span>
+              اطلاعات تکمیلی
+            </div>
+
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-5">آدرس و محدوده فعالیت</h2>
+            <p class="text-gray-400 text-sm md:text-base leading-8 font-light text-justify mb-8">
+              در این بخش می‌توانید آدرس دفتر، محدوده ارائه خدمات یا موقعیت مکانی مجموعه را قرار دهید. اگر بعداً قصد اضافه کردن نقشه گوگل یا نقشه داخلی دارید، این باکس به‌راحتی قابل جایگزینی است.
+            </p>
+
+            <div class="space-y-5">
+              <div class="bg-black/20 border border-white/5 rounded-2xl p-5">
+                <span class="text-gray-500 text-xs mb-2 block">آدرس دفتر</span>
+                <p class="text-white leading-8">
+                  تهران، خیابان نمونه، کوچه نمونه، پلاک ۱۲
+                </p>
+              </div>
+
+              <div class="bg-black/20 border border-white/5 rounded-2xl p-5">
+                <span class="text-gray-500 text-xs mb-2 block">ایمیل</span>
+                <a href="mailto:info@mojmana.com" class="text-[#d4af37] hover:text-white transition-colors">
+                  info@mojmana.com
+                </a>
+              </div>
+
+              <div class="bg-black/20 border border-white/5 rounded-2xl p-5">
+                <span class="text-gray-500 text-xs mb-2 block">روش‌های ارتباط</span>
+                <p class="text-gray-300 text-sm leading-8">
+                  تماس تلفنی، ثبت فرم، واتساپ یا شبکه‌های اجتماعی
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-10 border border-dashed border-[#d4af37]/25 rounded-2xl p-6 text-center">
+            <p class="text-[#d4af37] text-sm mb-2">محل قرارگیری نقشه</p>
+            <p class="text-gray-500 text-xs leading-6">
+              در صورت نیاز، این بخش می‌تواند با iframe نقشه یا تصویر موقعیت جایگزین شود.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div class="glass-card rounded-3xl p-6">
+            <h3 class="text-white font-bold mb-3">برای تماس سریع</h3>
+            <p class="text-gray-400 text-sm leading-7 mb-4">
+              اگر نیاز به هماهنگی فوری دارید، تماس تلفنی بهترین گزینه است.
+            </p>
+            <a href="tel:02126117883" class="text-[#d4af37] font-bold hover:text-white transition-colors" dir="ltr">
+              021-26117883
+            </a>
+          </div>
+
+          <div class="glass-card rounded-3xl p-6">
+            <h3 class="text-white font-bold mb-3">برای توضیحات بیشتر</h3>
+            <p class="text-gray-400 text-sm leading-7 mb-4">
+              اگر جزئیات بیشتری درباره مراسم دارید، فرم تماس انتخاب مناسب‌تری است.
+            </p>
+            <a href="#contact-form" class="text-[#d4af37] font-bold hover:text-white transition-colors">
+              تکمیل فرم تماس
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="w-full py-24 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl md:text-4xl font-extrabold gold-gradient-text mb-5">پرسش‌های رایج</h2>
+        <p class="text-gray-400 text-sm md:text-base leading-8 font-light">
+          پاسخ چند سوال متداول درباره تماس و هماهنگی خدمات
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <details class="bg-[#111] border border-white/5 rounded-2xl p-5">
+          <summary class="cursor-pointer flex items-center justify-between gap-4">
+            <span class="text-white font-bold">برای ثبت سفارش حتماً باید فرم پر شود؟</span>
+            <span class="text-[#d4af37] text-xl">+</span>
+          </summary>
+          <p class="text-gray-400 text-sm leading-8 font-light mt-4">
+            خیر. امکان تماس مستقیم نیز وجود دارد. فرم بیشتر برای زمانی مناسب است که بخواهید اطلاعات کامل‌تری ارسال کنید.
+          </p>
+        </details>
+
+        <details class="bg-[#111] border border-white/5 rounded-2xl p-5">
+          <summary class="cursor-pointer flex items-center justify-between gap-4">
+            <span class="text-white font-bold">چه اطلاعاتی هنگام تماس بهتر است آماده باشد؟</span>
+            <span class="text-[#d4af37] text-xl">+</span>
+          </summary>
+          <p class="text-gray-400 text-sm leading-8 font-light mt-4">
+            زمان مراسم، محل برگزاری، تعداد تقریبی مهمانان و خدمات موردنیاز، از مهم‌ترین اطلاعات اولیه برای هماهنگی بهتر هستند.
+          </p>
+        </details>
+
+        <details class="bg-[#111] border border-white/5 rounded-2xl p-5">
+          <summary class="cursor-pointer flex items-center justify-between gap-4">
+            <span class="text-white font-bold">آیا پیش از نهایی شدن سفارش امکان مشاوره وجود دارد؟</span>
+            <span class="text-[#d4af37] text-xl">+</span>
+          </summary>
+          <p class="text-gray-400 text-sm leading-8 font-light mt-4">
+            بله، شما می‌توانید پیش از ثبت نهایی، درباره خدمات، ترکیب مناسب و نحوه اجرا مشاوره دریافت کنید.
+          </p>
+        </details>
+
+        <details class="bg-[#111] border border-white/5 rounded-2xl p-5">
+          <summary class="cursor-pointer flex items-center justify-between gap-4">
+            <span class="text-white font-bold">آیا امکان ثبت درخواست برای خدمات محدود یا تکی هم وجود دارد؟</span>
+            <span class="text-[#d4af37] text-xl">+</span>
+          </summary>
+          <p class="text-gray-400 text-sm leading-8 font-light mt-4">
+            بله، بسته به شرایط مراسم می‌توان خدمات را به‌صورت تکی یا ترکیبی نیز هماهنگ کرد.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="w-full py-24 px-6 bg-[#0a0a0a] border-y border-white/5">
+    <div class="max-w-6xl mx-auto rounded-[2.25rem] border border-[#d4af37]/20 bg-gradient-to-b from-[#121212] to-[#090909] p-8 md:p-14 text-center gold-shadow relative overflow-hidden">
+      <div class="absolute inset-0 opacity-15 bg-[radial-gradient(circle_at_center,_#d4af37,_transparent_38%)]"></div>
+
+      <div class="relative z-10">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#d4af37]/20 bg-[#d4af37]/5 text-[#d4af37] text-xs md:text-sm mb-6">
+          در صورت نیاز به هماهنگی سریع
+        </div>
+
+        <h2 class="text-3xl md:text-5xl font-extrabold gold-gradient-text mb-6 leading-[1.7]">
+          برای دریافت مشاوره و هماهنگی خدمات<br>
+          با موج مانا در ارتباط باشید
+        </h2>
+
+        <p class="text-gray-300 text-sm md:text-base max-w-4xl mx-auto leading-8 md:leading-9 font-light mb-8">
+          ما آماده‌ایم متناسب با نوع مراسم، شرایط برگزاری و نیاز شما، مسیر هماهنگی خدمات را ساده‌تر و منظم‌تر کنیم.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="tel:02126117883" class="shine-btn bg-[#d4af37] text-black font-bold px-8 py-4 rounded-full hover:scale-105 transition-all" dir="ltr">
+            تماس مستقیم
+          </a>
+          <a href="order.html" class="border border-[#d4af37] text-[#d4af37] font-bold px-8 py-4 rounded-full hover:bg-[#d4af37] hover:text-black transition-all">
+            ثبت سفارش آنلاین
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gradient-to-b from-[#111] to-black w-full pt-24 pb-10 px-6 border-t border-white/5">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="grid lg:grid-cols-4 gap-10 pb-14 border-b border-white/5">
+        <div class="lg:col-span-2">
+          <img src="img/mog.png" alt="لوگو موج مانا" class="w-44 mb-6 opacity-85 drop-shadow-[0_0_15px_rgba(212,175,55,0.20)]">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">موج مانا</h2>
+          <p class="text-gray-400 text-sm md:text-base leading-8 font-light text-justify max-w-2xl">
+            موج مانا ارائه‌دهنده خدمات تخصصی مجالس ترحیم با تمرکز بر احترام، نظم، کیفیت اجرایی و طراحی متین است. ما تلاش می‌کنیم بخشی از دغدغه‌های اجرایی خانواده را در روزهای سوگواری کاهش دهیم.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-white font-bold text-lg mb-5">دسترسی سریع</h3>
+          <ul class="space-y-3 text-sm">
+            <li><a href="index.html" class="text-gray-400 hover:text-[#d4af37] transition-colors">خانه</a></li>
+            <li><a href="tarhim-services.html" class="text-gray-400 hover:text-[#d4af37] transition-colors">خدمات مجالس ترحیم</a></li>
+            <li><a href="gallery.html" class="text-gray-400 hover:text-[#d4af37] transition-colors">گالری</a></li>
+            <li><a href="about.html" class="text-gray-400 hover:text-[#d4af37] transition-colors">درباره ما</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-[#d4af37] transition-colors">تماس با ما</a></li>
+            <li><a href="order.html" class="text-gray-400 hover:text-[#d4af37] transition-colors">ثبت سفارش</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-white font-bold text-lg mb-5">راه‌های ارتباطی</h3>
+          <ul class="space-y-3 text-sm text-gray-400">
+            <li><a href="tel:02126117883" class="hover:text-[#d4af37] transition-colors" dir="ltr">021-26117883</a></li>
+            <li><a href="tel:09121234567" class="hover:text-[#d4af37] transition-colors" dir="ltr">0912-123-4567</a></li>
+            <li><a href="mailto:info@mojmana.com" class="hover:text-[#d4af37] transition-colors">info@mojmana.com</a></li>
+            <li>تهران، خیابان نمونه، کوچه نمونه، پلاک ۱۲</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 py-10">
+        <div class="bg-[#111] border border-white/5 rounded-2xl p-6 text-center">
+          <span class="text-gray-500 text-xs mb-2 block">شماره تماس</span>
+          <a href="tel:02126117883" class="text-[#d4af37] text-2xl font-bold hover:text-white transition-colors" dir="ltr">021-26117883</a>
+        </div>
+
+        <div class="bg-[#111] border border-white/5 rounded-2xl p-6 text-center">
+          <span class="text-gray-500 text-xs mb-2 block">موبایل</span>
+          <a href="tel:09121234567" class="text-[#d4af37] text-2xl font-bold hover:text-white transition-colors" dir="ltr">0912-123-4567</a>
+        </div>
+
+        <div class="bg-[#111] border border-white/5 rounded-2xl p-6 text-center">
+          <span class="text-gray-500 text-xs mb-2 block">پاسخ‌گویی</span>
+          <p class="text-[#d4af37] text-xl font-bold">همه‌روزه</p>
+        </div>
+      </div>
+
+      <div class="gold-line my-8"></div>
+
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-right">
+        <p class="text-gray-500 text-sm">© تمامی حقوق این وب‌سایت برای موج مانا محفوظ است.</p>
+        <a href="#"><p class="text-blue-300 text-sm">طراحی شده توسط  تیم تخصصی mmd cod</p></a>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>

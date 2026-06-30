@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navbar:#232527;
+  --color-brand:#cdae20;
+
+}
+/* فونت های وارد شده به سایت  */
+@font-face {
+  font-family: 'Vazir';
+  src: url('assets/font/Vazirmatn-Medium.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font-vazir {
+  font-family: 'Vazir', sans-serif;
+}
+@font-face {
+  font-family: 'farhang';
+  src: url('assets/font/IranNastaliq.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font-farhang {
+  font-family: 'farhang', sans-serif;
+}
+@media (max-width: 992px) {
+  .shop-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .shop-sidebar {
+    position: static;
+  }
+    .category-strip {
+    position: static;
+    top: auto;
+  }
+}

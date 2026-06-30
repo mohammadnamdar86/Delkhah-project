@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>موج مانا | خدمات مجالس ترحیم، پذیرایی، گل‌آرایی و تشریفات مراسم</title>
+  <meta name="description" content="موج مانا ارائه‌دهنده خدمات تخصصی مجالس ترحیم شامل پذیرایی مراسم ختم، حلوا و خرما، پک پذیرایی، گل‌آرایی، میز یادبود، تاج گل، مداح و قاری با طراحی لوکس و اجرای محترمانه." />
+  <meta name="keywords" content="موج مانا, خدمات ترحیم, تشریفات ترحیم, پذیرایی ختم, حلوا و خرما, پک پذیرایی ترحیم, گل آرایی ترحیم, میز یادبود, مداح و قاری" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#050505" />
+  <meta name="author" content="Moj Mana" />
+
+  <link rel="stylesheet" href="output.css" />
+
+  <style>
+    html { scroll-behavior: smooth; }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at top center, rgba(212,175,55,0.10), transparent 24%),
+        radial-gradient(circle at 80% 20%, rgba(212,175,55,0.05), transparent 18%),
+        linear-gradient(to bottom, #050505, #080808, #030303);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0a0a0a; }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(to bottom, #d4af37, #8c6b16);
+      border-radius: 20px;
+    }
+
+    .gold-gradient-text {
+      background: linear-gradient(90deg, #fff8e6 0%, #f6dc8a 20%, #d4af37 45%, #a87d1e 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 4px 24px rgba(212,175,55,.12);
+    }
+
+    .glass-card {
+      background: rgba(17,17,17,.72);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,.06);
+      box-shadow: 0 10px 40px rgba(0,0,0,.25);
+    }
+
+    .gold-shadow {
+      box-shadow: 0 10px 45px rgba(212,175,55,.10);
+    }
+
+    .gold-shadow-hover:hover {
+      box-shadow: 0 16px 55px rgba(212,175,55,.16);
+      transform: translateY(-4px);
+    }
+
+    .image-frame {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1.75rem;
+      background: #111;
+      border: 1px solid rgba(212,175,55,.10);
+    }
+
+    .image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .8s ease;
+    }
+
+    .image-frame:hover img {
+      transform: scale(1.06);
+    }
+
+    .image-frame::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.45), rgba(0,0,0,.02));
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .dropdown-menu {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      transition: all .28s ease;
+    }
+
+    .dropdown:hover .dropdown-menu,
+    .dropdown:focus-within .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .gold-line {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to left, transparent, rgba(212,175,55,.7), transparent);
+    }
+
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item[open] {
+      border-color: rgba(212,175,55,.35);
+      box-shadow: 0 10px 35px rgba(212,175,55,.07);
+    }
+
+    .shine-btn {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .shine-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -120%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,.35), transparent);
+      transform: skewX(-20deg);
+      transition: .8s;
+      z-index: -1;
+    }
+
+    .shine-btn:hover::before {
+      right: 140%;
+    }
+
+    .section-glow::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(212,175,55,.06), transparent 45%);
+      pointer-events: none;
+      opacity: .8;
+    }
+
+    .hero-section {
+      min-height: 100vh;
+      padding-top: 120px;
+      padding-bottom: 50px;
+      background: url('img/hero.png') center center / cover no-repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible {
+      outline: 2px solid #d4af37;
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
+    .mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .35s ease;
+    }
+
+    .mobile-menu.open {
+      max-height: 1200px;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-section {
+        min-height: 85vh;
+        background-position: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-section {
+        min-height: auto;
+        padding-top: 110px;
+        padding-bottom: 40px;
+      }
+
+      .image-frame {
+        border-radius: 1.25rem;
+      }
+
+      .dropdown-menu {
+        position: static !important;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        width: 100% !important;
+        display: none;
+        margin-top: 10px;
+      }
+
+      .dropdown.open .dropdown-menu {
+        display: block;
+      }
+    }
+  </style>
+</head>
+
+
+<body class="font-vazir selection:bg-[#d4af37] selection:text-black">
+   <!-- Floating Phone -->
+  <a href="tel:02112345678" class="fixed bottom-6 left-6 z-50 flex items-center gap-3 bg-[#0a0a0a]/90 backdrop-blur-md px-5 py-3 rounded-full shadow-gold-soft border border-green-500/20 hover:border-green-500/50 hover:scale-105 transition-all duration-300 group">
+    <img src="img/tell.png" alt="تماس" class="w-10 group-hover:rotate-12 transition-transform duration-300">
+    <h4 class="text-xs md:text-sm text-green-400 font-bold tracking-wide">سفارش فوری</h4>
+  </a>
+<!-- HEADER -->
+<header class="fixed top-0 right-0 left-0 w-full px-4 md:px-8 lg:px-10 bg-black lg:bg-black/30 lg:backdrop-blur-xl border-b border-white/10 z-50">
+  <div class="max-w-7xl mx-auto">
+    
+    <div class="flex items-center justify-between py-1 md:py-3 gap-4">
+
+      <!-- Right Side : Menu -->
+      <div class="flex items-center gap-4 lg:gap-8">
+        
+        <!-- Desktop Menu -->
+        <nav aria-label="منوی اصلی" class="hidden lg:block">
+          <ul class="flex items-center gap-6 xl:gap-8 relative">
+            <li>
+              <a href="index.html" class="py-2 text-sm font-bold text-white border-b-2 border-[#d4af37] block transition-all">
+                خانه
+              </a>
+            </li>
+
+            <li class="relative dropdown">
+              <a href="tarhim-services.html" class="py-2 text-sm font-bold text-gray-200 border-b-2 border-transparent hover:border-[#d4af37] hover:text-white flex items-center gap-2 transition-all">
+                خدمات
+                <span class="text-[10px]">▼</span>
+              </a>
+
+              <ul class="dropdown-menu absolute right-0 top-full mt-3 w-72 bg-[#0b0b0b]/95 backdrop-blur-xl border border-[#d4af37]/20 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.45)] z-50 overflow-hidden">
+                <li><a href="tarhim-services.html" class="block px-5 py-3 text-sm text-gray-300 hover:bg-[#d4af37]/10 hover:text-white transition-all">خدمات مجالس ترحیم</a></li>
+                <li><a href="halva-khorma.html" class="block px-5 py-3 text-sm text-gray-300 hover:bg-[#d4af37]/10 hover:text-white transition-all">حلوا و خرما</a></li>
+                <li><a href="pack-service.html" class="block px-5 py-3 text-sm text-gray-300 hover:bg-[#d4af37]/10 hover:text-white transition-all">پک پذیرایی</a></li>
+                <li><a href="golarayi.html" class="block px-5 py-3 text-sm text-gray-300 hover:bg-[#d4af37]/10 hover:text-white transition-all">گل‌آرایی و تاج گل</a></li>
+                <li><a href="miz-yadbood.html" class="block px-5 py-3 text-sm text-gray-300 hover:bg-[#d4af37]/10 hover:text-white transition-all">میز یادبود</a></li>
+                <li><a href="madah-ghari.html" class="block px-5 py-3 text-sm text-gray-300 hover:bg-[#d4af37]/10 hover:text-white transition-all">مداح و قاری</a></li>
+              </ul>
+            </li>
+
+            <li><a href="gallery.html" class="py-2 text-sm font-bold text-gray-200 border-b-2 border-transparent hover:border-[#d4af37] hover:text-white block transition-all">گالری</a></li>
+            <li><a href="about.html" class="py-2 text-sm font-bold text-gray-200 border-b-2 border-transparent hover:border-[#d4af37] hover:text-white block transition-all">درباره ما</a></li>
+            <li><a href="contact.html" class="py-2 text-sm font-bold text-gray-200 border-b-2 border-transparent hover:border-[#d4af37] hover:text-white block transition-all">تماس با ما</a></li>
+
+            <li>
+              <a href="order.html" class="shine-btn py-2 px-5 rounded-full bg-[#d4af37] text-black text-sm font-bold hover:scale-105 transition-all block">
+                سفارش فوری
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Mobile Button -->
+        <button id="menuBtn" class="lg:hidden w-10 h-10 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center text-white" aria-label="باز کردن منو" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+
+      </div>
+
+      <!-- Left Side : Logo -->
+      <a href="index.html" class="block shrink-0" aria-label="صفحه اصلی موج مانا">
+        <img src="img/mog.png" alt="لوگو موج مانا" class="w-14 md:w-28 object-contain drop-shadow-[0_0_14px_rgba(212,175,55,0.55)]">
+      </a>
+
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu lg:hidden pb-2">
+      <nav aria-label="منوی موبایل">
+        <ul class="flex flex-col gap-2 bg-black border border-white/10 rounded-2xl p-3">
+          <li><a href="index.html" class="block px-4 py-3 rounded-xl text-sm font-bold text-white bg-[#d4af37]/10 border border-[#d4af37]/20">خانه</a></li>
+
+          <li class="dropdown">
+            <button type="button" class="mobileDropdownBtn w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-bold text-gray-200 hover:bg-white/5 transition-all">
+              <span>خدمات</span>
+              <span class="text-xs">▼</span>
+            </button>
+
+            <ul class="dropdown-menu bg-[#111] border border-white/10 rounded-xl overflow-hidden">
+              <li><a href="tarhim-services.html" class="block px-4 py-3 text-sm text-gray-300 hover:bg-[#d4af37]/10 hover:text-white">خدمات مجالس ترحیم</a></li>
+              <li><a href="halva-khorma.html" class="block px-4 py-3 text-sm text-gray-300 hover:bg-[#d4af37]/10 hover:text-white">حلوا و خرما</a></li>
+              <li><a href="pack-service.html" class="block px-4 py-3 text-sm text-gray-300 hover:bg-[#d4af37]/10 hover:text-white">پک پذیرایی</a></li>
+              <li><a href="golarayi.html" class="block px-4 py-3 text-sm text-gray-300 hover:bg-[#d4af37]/10 hover:text-white">گل‌آرایی و تاج گل</a></li>
+              <li><a href="miz-yadbood.html" class="block px-4 py-3 text-sm text-gray-300 hover:bg-[#d4af37]/10 hover:text-white">میز یادبود</a></li>
+              <li><a href="madah-ghari.html" class="block px-4 py-3 text-sm text-gray-300 hover:bg-[#d4af37]/10 hover:text-white">مداح و قاری</a></li>
+            </ul>
+          </li>
+
+          <li><a href="gallery.html" class="block px-4 py-3 rounded-xl text-sm font-bold text-gray-200 hover:bg-white/5 transition-all">گالری</a></li>
+          <li><a href="about.html" class="block px-4 py-3 rounded-xl text-sm font-bold text-gray-200 hover:bg-white/5 transition-all">درباره ما</a></li>
+          <li><a href="contact.html" class="block px-4 py-3 rounded-xl text-sm font-bold text-gray-200 hover:bg-white/5 transition-all">تماس با ما</a></li>
+          <li><a href="order.html" class="block text-center px-4 py-3 rounded-xl bg-[#d4af37] text-black text-sm font-bold">سفارش فوری</a></li>
+        </ul>
+      </nav>
+    </div>
+
+  </div>
+</header>
+    <!-- HERO -->
+    <section class="hero-section text-center px-4 sm:px-6">
+      <div class="relative z-10 max-w-5xl mx-auto w-full">
+        <img src="img/mog.png" alt="لوگوی موج مانا" class="w-36 sm:w-44 md:w-72 lg:w-[30rem] mx-auto mb-3">
+
+        <div class="inline-flex flex-wrap justify-center items-center gap-3 text-[#d4af37] text-xs sm:text-sm mb-5">
+          <span class="w-8 sm:w-10 h-[1px] bg-[#d4af37]/60"></span>
+          خدمات تخصصی مجالس ترحیم
+          <span class="w-8 sm:w-10 h-[1px] bg-[#d4af37]/60"></span>
+        </div>
+
+        <p class="text-white text-sm sm:text-base leading-8 md:leading-9 max-w-2xl mx-auto mb-8 px-1">
+          موج مانا با ارائه خدمات کامل مجالس ترحیم شامل پذیرایی، حلوا و خرما، پک پذیرایی، گل‌آرایی، میز یادبود، مداح و قاری، تلاش می‌کند بخشی از دغدغه‌های اجرایی خانواده را در روزهای سوگواری کاهش دهد.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a href="order.html" class="shine-btn w-full sm:w-auto text-center bg-[#d4af37] text-black font-bold px-8 py-4 rounded-full hover:scale-105 transition-all">
+            ثبت سفارش آنلاین
+          </a>
+          <a href="tel:02126117883" class="w-full sm:w-auto text-center border border-[#d4af37] text-[#d4af37] font-bold px-8 py-4 rounded-full hover:bg-[#d4af37] hover:text-black transition-all">
+            تماس مستقیم
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="w-full py-16 md:py-20 px-4 sm:px-6 relative section-glow">
+      <div class="max-w-6xl mx-auto text-center relative z-10">
+        <div class="inline-flex items-center gap-3 text-[#d4af37] text-sm mb-6">
+          <span class="w-10 h-[1px] bg-[#d4af37]/60"></span>
+          معرفی مجموعه
+          <span class="w-10 h-[1px] bg-[#d4af37]/60"></span>
+        </div>
+
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-6 leading-[1.8]">
+خدمات مراسم ترحیم با نگاهی فراتر از اجرا
+        </h2>
+
+        <p class="text-gray-300 max-w-5xl mx-auto text-sm md:text-base leading-8 md:leading-9 font-light text-right md:text-justify">
+در موج مانا تلاش می‌شود تمامی بخش‌های مراسم ترحیم با برنامه‌ریزی دقیق، اجرای منظم و متناسب با شرایط هر خانواده انجام شود؛ به‌گونه‌ای که فضایی آرام،
+
+        </p>
+
+        <p class="text-gray-400 max-w-5xl mx-auto text-sm md:text-base leading-8 md:leading-9 font-light text-right md:text-justify mt-6">
+برگزاری مراسم ترحیم، تنها به فراهم‌کردن چند خدمت در کنار یکدیگر محدود نمی‌شود؛
+بلکه نیازمند دقت، هماهنگی و توجهی عمیق به جزئیاتی است که در نهایت، فضایی آرام، آبرومند و شایسته برای خانواده و مهمانان ایجاد می‌کند.
+
+از نحوه آماده‌سازی و پذیرایی گرفته تا آراستگی محیط، طراحی میز یادبود، گل‌آرایی، انتخاب ترکیب رنگ‌ها و هماهنگی بخش‌های مختلف مراسم، همه چیز باید با نظم، احترام و تناسب کامل انجام شود. آنچه یک مراسم را متمایز می‌کند، تنها اجرای خدمات نیست، بلکه کیفیت نگاه به همین جزئیات و انسجام میان آن‌هاست.        </p>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="w-full py-16 px-4 sm:px-6">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+        <div class="glass-card rounded-3xl p-5 sm:p-6 md:p-7 gold-shadow-hover transition-all duration-300">
+          <div class="text-4xl mb-5 text-[#d4af37]"><img src="img/salon.png" alt=""></div>
+          <h3 class=" font-bold text-3xl mb-4 text-center text-[#F1F3F8]">رزرو سالن مراسم</h3>
+           <h6 class=" mt-6 text-[#AD7BE9] text-sm font-bold  transition-all  animate-pulse text-center">ثبت سفارش ... </h6>
+        </div>
+
+        <div class="glass-card rounded-3xl p-5 sm:p-6 md:p-7 gold-shadow-hover transition-all duration-300">
+          <div class="text-4xl mb-5 text-[#d4af37]"><img src="img/goll.png" alt="">
+          </div>
+          <h3 class="text-[#F1F3F8] font-bold text-3xl mb-4 text-center  " > خرید تاج گل </h3>
+           <h6 class=" mt-6 text-[#AD7BE9] text-sm font-bold  transition-all  animate-pulse text-center">ثبت سفارش ... </h6>
+
+        </div>
+
+        <div class="glass-card rounded-3xl p-5 sm:p-6 md:p-7 gold-shadow-hover transition-all duration-300">
+          <div class="text-4xl mb-5 text-[#d4af37]"><img src="img/pak.png" alt=""></div>
+          <h3 class="text-[#F1F3F8] font-bold text-3xl mb-4 text-center  "> پک پذیرایی </h3>
+           <h6 class=" mt-6 text-[#AD7BE9] text-sm font-bold  transition-all  animate-pulse text-center">ثبت سفارش ... </h6>
+        </div>
+
+        <div class="glass-card rounded-3xl p-5 sm:p-6 md:p-7 gold-shadow-hover transition-all duration-300">
+          <div class="text-4xl mb-5 text-[#d4af37]"><img src="img/gari.png" alt="">
+          </div>
+          <h3 class="text-[#F1F3F8] font-bold text-3xl mb-4 text-center  ">مداح و قاری </h3>
+           <h6 class=" mt-6 text-[#AD7BE9] text-sm font-bold  transition-all  animate-pulse text-center">ثبت سفارش ... </h6>          
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="w-full py-16 md:py-24 px-4 sm:px-6 bg-[#090909] border-y border-white/5">
+      <div class="max-w-7xl mx-auto">
+
+        <div class="text-center mb-14 md:mb-16">
+          <div class="inline-flex items-center gap-3 text-[#d4af37] text-sm mb-6">
+            <span class="w-10 h-[1px] bg-[#d4af37]/60"></span>
+            خدمات اصلی موج مانا
+            <span class="w-10 h-[1px] bg-[#d4af37]/60"></span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold gold-gradient-text mb-5">مجموعه‌ای کامل از خدمات مجالس ترحیم</h2>
+          <p class="text-gray-400 text-sm md:text-base max-w-4xl mx-auto leading-8 font-light">
+            خدمات ما متناسب با محل برگزاری، تعداد مهمانان، نوع مراسم و سطح موردنظر خانواده قابل تنظیم است.
+          </p>
+        </div>
+f37]
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+          <a href="halva-khorma.html" class="group bg-[#111] border border-white/5 rounded-3xl p-5 sm:p-6 md:p-7 transition-all duration-300 gold-shadow-hover block">
+            <div class="text-4xl mb-5"><img src="img/خرما تکی.png" alt="خرما" class="w-16"></div>
+            <h3 class="text-white font-bold text-xl mb-4">حلوا و خرما</h3>
+            <p class="text-gray-400 text-sm leading-8 font-light mb-4">
+              ارائه انواع حلوا، خرما، سینی‌های ترکیبی، خرمای مغزدار و مدل‌های مناسب پذیرایی سنتی در مراسم ترحیم.
+            </p>
+            <p class="text-gray-500 text-sm leading-7">
+              امکان انتخاب سبک ساده، رسمی یا تشریفاتی بر اساس نوع مجلس و تعداد مهمانان.
+            </p>
+            <span class="inline-block mt-6 text-[#d4af37] text-sm font-bold group-hover:translate-x-[-4px] transition-all">مشاهده جزئیات ←</span>
+          </a>
+
+          <a href="pack-service.html" class="group bg-[#111] border border-white/5 rounded-3xl p-5 sm:p-6 md:p-7 transition-all duration-300 gold-shadow-hover block">
+            <div class="text-4xl mb-5"><img src="img/pak.png" alt="پک پذیرایی" class="w-16"></div>
+            
+            <h3 class="text-white font-bold text-xl mb-4">پک پذیرایی</h3>
+            <p class="text-gray-400 text-sm leading-8 font-light mb-4">
+              پک‌های تک‌نفره برای پذیرایی منظم، آراسته و بهداشتی در مسجد، منزل، آرامستان، حسینیه و سالن.
+            </p>
+            <p class="text-gray-500 text-sm leading-7">
+              مناسب برای مراسم‌هایی که سرعت توزیع، نظم و ظاهر آراسته اهمیت بالایی دارد.
+            </p>
+            <span class="inline-block mt-6 text-[#d4af37] text-sm font-bold group-hover:translate-x-[-4px] transition-all">مشاهده جزئیات ←</span>
+          </a>
+
+          <a href="golarayi.html" class="group bg-[#111] border border-white/5 rounded-3xl p-5 sm:p-6 md:p-7 transition-all duration-300 gold-shadow-hover block">
+            <div class="text-4xl mb-5">🌹</div>
+            <h3 class="text-white font-bold text-xl mb-4">گل‌آرایی و تاج گل</h3>
+            <p class="text-gray-400 text-sm leading-8 font-light mb-4">
+              طراحی گل‌آرایی ورودی، جایگاه، اطراف تصویر متوفی، تاج گل، استند گل و دکور رسمی مناسب مراسم.
+            </p>
+            <p class="text-gray-500 text-sm leading-7">
+              با در نظر گرفتن وقار مراسم و هماهنگی بصری کلی فضا.
+            </p>
+            <span class="inline-block mt-6 text-[#d4af37] text-sm font-bold group-hover:translate-x-[-4px] transition-all">مشاهده جزئیات ←</span>
+          </a>
+
+          <a href="miz-yadbood.html" class="group bg-[#111] border border-white/5 rounded-3xl p-5 sm:p-6 md:p-7 transition-all duration-300 gold-shadow-hover block">
+            <div class="text-4xl mb-5">🕯️</div>
+            <h3 class="text-white font-bold text-xl mb-4">میز یادبود</h3>
+            <p class="text-gray-400 text-sm leading-8 font-light mb-4">
+              چیدمان میز یادبود با قاب عکس، شمع‌آرایی، گل‌های هماهنگ، پارچه‌های مناسب و اکسسوری‌های مینیمال.
+            </p>
+            <p class="text-gray-500 text-sm leading-7">
+              مناسب برای مراسم‌هایی که ظاهر جایگاه و فضای بصری برای خانواده اهمیت ویژه‌ای دارد.
+            </p>
+            <span class="inline-block mt-6 text-[#d4af37] text-sm font-bold group-hover:translate-x-[-4px] transition-all">مشاهده جزئیات ←</span>
+          </a>
+
+          <a href="madah-ghari.html" class="group bg-[#111] border border-white/5 rounded-3xl p-5 sm:p-6 md:p-7 transition-all duration-300 gold-shadow-hover block">
+            <div class="text-4xl mb-5"><img src="img/میکروفن.png" alt="میکروفن" class="w-16"></div>
+            <h3 class="text-white font-bold text-xl mb-4">مداح و قاری</h3>
+            <p class="text-gray-400 text-sm leading-8 font-light mb-4">
+              هماهنگی اجرای بخش‌های مذهبی مراسم با توجه به زمان، سبک برگزاری، فضای مجلس و خواست خانواده محترم.
+            </p>
+            <p class="text-gray-500 text-sm leading-7">
+              برای ایجاد فضایی معنوی، منظم و در شأن مجلس سوگواری.
+            </p>
+            <span class="inline-block mt-6 text-[#d4af37] text-sm font-bold group-hover:translate-x-[-4px] transition-all">مشاهده جزئیات ←</span>
+          </a>
+
+          <a href="tarhim-services.html" class="group bg-gradient-to-b from-[#121212] to-[#0b0b0b] border border-[#d4af37]/20 rounded-3xl p-5 sm:p-6 md:p-7 transition-all duration-300 gold-shadow-hover block">
+            <div class="text-4xl mb-5">✨</div>
+            <h3 class="text-white font-bold text-xl mb-4">مشاهده همه خدمات</h3>
+            <p class="text-gray-400 text-sm leading-8 font-light mb-4">
+              اگر مایل هستید دید کامل‌تری نسبت به ساختار خدمات موج مانا و نحوه انتخاب سرویس‌ها داشته باشید، صفحه جامع خدمات را مشاهده کنید.
+            </p>
+            <p class="text-gray-500 text-sm leading-7">
+              مناسب برای خانواده‌هایی که به دنبال سفارش ترکیبی و هماهنگی یکپارچه هستند.
+            </p>
+            <span class="inline-block mt-6 text-[#d4af37] text-sm font-bold group-hover:translate-x-[-4px] transition-all">ورود به صفحه خدمات ←</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- IMAGE + CONTENT -->
+    <section class="w-full py-16 md:py-24 px-4 sm:px-6">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 items-center">
+
+        <div class="image-frame h-[260px] sm:h-[340px] md:h-[460px] lg:h-[560px] gold-shadow">
+          <img src="img/پک مانا.png" alt="نمونه تشریفات مراسم ترحیم موج مانا">
+        </div>
+
+        <div>
+          <div class="inline-flex items-center gap-2 text-[#d4af37] text-sm mb-5">
+            <span class="w-10 h-[1px] bg-[#d4af37]/60"></span>
+            نگاه موج مانا
+          </div>
+
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-6 leading-[1.8]">
+            طراحی خدمات برای آرامش بیشتر خانواده
+          </h2>
+
+          <p class="text-gray-300 text-sm md:text-base leading-8 md:leading-9 font-light text-right md:text-justify mb-5">
+            بسیاری از خانواده‌ها در روزهای برگزاری مراسم، علاوه بر غم و فشار عاطفی، با حجم زیادی از هماهنگی‌ها روبه‌رو هستند. تهیه اقلام پذیرایی، چیدمان محیط، نظم توزیع، هماهنگی عوامل، انتخاب مدل خدمات و آماده‌سازی بخش‌های مختلف مراسم، همگی نیازمند زمان و دقت هستند. وجود یک مجموعه متخصص می‌تواند این فرآیند را بسیار ساده‌تر و حرفه‌ای‌تر کند.
+          </p>
+
+          <p class="text-gray-400 text-sm md:text-base leading-8 md:leading-9 font-light text-right md:text-justify mb-5">
+            در موج مانا، خدمات به‌شکل قالب‌های ازپیش‌ثابت و بی‌روح ارائه نمی‌شوند؛ بلکه بر اساس نیاز هر مراسم، امکان انتخاب و ترکیب بخش‌های مختلف وجود دارد. این انعطاف‌پذیری باعث می‌شود نتیجه نهایی، هم با سطح مراسم و هم با بودجه و خواست خانواده تناسب بیشتری داشته باشد.
+          </p>
+
+          <p class="text-gray-400 text-sm md:text-base leading-8 md:leading-9 font-light text-right md:text-justify mb-8">
+            ما بر این باوریم که کیفیت در مراسم ترحیم تنها در زیبایی ظاهری خلاصه نمی‌شود؛ بلکه کیفیت واقعی در احترام، وقت‌شناسی، یکدستی اجرا، تناسب خدمات و ایجاد حس آرامش برای خانواده و مهمانان معنا پیدا می‌کند.
+          </p>
+
+          <div class="space-y-4">
+            <div class="flex items-start gap-4 bg-[#111] border border-white/5 rounded-2xl p-4">
+              <div class="w-10 h-10 rounded-full bg-[#d4af37]/15 flex items-center justify-center text-[#d4af37] font-bold mt-1 shrink-0">✓</div>
+              <div>
+                <h3 class="font-bold text-white mb-1">امکان انتخاب خدمات به‌صورت تکی یا ترکیبی</h3>
+                <p class="text-gray-400 text-sm leading-7">شما می‌توانید فقط یک خدمت یا مجموعه‌ای از خدمات را متناسب با نیاز مراسم انتخاب کنید.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 bg-[#111] border border-white/5 rounded-2xl p-4">
+              <div class="w-10 h-10 rounded-full bg-[#d4af37]/15 flex items-center justify-center text-[#d4af37] font-bold mt-1 shrink-0">✓</div>
+              <div>
+                <h3 class="font-bold text-white mb-1">هماهنگی مناسب برای انواع فضاهای برگزاری</h3>
+                <p class="text-gray-400 text-sm leading-7">امکان اجرای خدمات برای منزل، مسجد، حسینیه، آرامستان و سالن‌های مختلف.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 bg-[#111] border border-white/5 rounded-2xl p-4">
+              <div class="w-10 h-10 rounded-full bg-[#d4af37]/15 flex items-center justify-center text-[#d4af37] font-bold mt-1 shrink-0">✓</div>
+              <div>
+                <h3 class="font-bold text-white mb-1">ظاهر لوکس اما متین و مناسب فضای سوگواری</h3>
+                <p class="text-gray-400 text-sm leading-7">طراحی‌ها با حفظ وقار و پرهیز از جلوه‌های نامتناسب با روح مراسم انجام می‌شوند.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CEREMONIES -->
+    <section class="w-full py-16 md:py-24 px-4 sm:px-6 bg-[#0a0a0a] border-y border-white/5">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-14 md:mb-16">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold gold-gradient-text mb-5">مناسب برای چه مراسم‌هایی؟</h2>
+          <p class="text-gray-400 text-sm md:text-base max-w-4xl mx-auto leading-8 font-light">
+            خدمات موج مانا متناسب با نوع مراسم و سطح نیاز خانواده، قابل تنظیم و اجرا است.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+          <div class="bg-[#111] border border-white/5 rounded-3xl p-5 sm:p-6 md:p-7 gold-shadow-hover transition-all">
+            <div class="text-4xl mb-4">🖤</div>
+            <h3 class="text-white font-bold text-xl mb-3">مراسم ختم</h3>
+            <p class="text-gray-400 text-sm leading-8 font-light">
+              شامل پذیرایی منظم، اقلام ضروری، حلوا و خرما، هماهنگی قاری و بخش‌های اصلی مراسم با اجرای سریع و رسمی.
+            </p>
+          </div>
+
+          <div class="bg-[#111] border border-white/5 rounded-3xl p-5 sm:p-6 md:p-7 gold-shadow-hover transition-all">
+            <div class="text-4xl mb-4">🌿</div>
+            <h3 class="text-white font-bold text-xl mb-3">سوم و هفتم</h3>
+            <p class="text-gray-400 text-sm leading-8 font-light">
+              امکان ارائه خدمات در مقیاس‌های متنوع، از مدل‌های ساده‌تر تا اجراهای کامل‌تر متناسب با تعداد مهمانان.
+            </p>
+          </div>
+
+          <div class="bg-[#111] border border-white/5 rounded-3xl p-5 sm:p-6 md:p-7 gold-shadow-hover transition-all">
+            <div class="text-4xl mb-4">🕯️</div>
+            <h3 class="text-white font-bold text-xl mb-3">چهلم</h3>
+            <p class="text-gray-400 text-sm leading-8 font-light">
+              در مراسم چهلم معمولاً بخش‌های تزئینی مانند میز یادبود و گل‌آرایی رسمی نیز اهمیت بیشتری پیدا می‌کنند.
+            </p>
+          </div>
+
+          <div class="bg-[#111] border border-white/5 rounded-3xl p-5 sm:p-6 md:p-7 gold-shadow-hover transition-all">
+            <div class="text-4xl mb-4">🤍</div>
+            <h3 class="text-white font-bold text-xl mb-3">سالگرد و یادبود</h3>
+            <p class="text-gray-400 text-sm leading-8 font-light">
+              خدمات قابل تنظیم برای مراسم‌های سالگرد، یادبودهای خصوصی یا رسمی با چیدمانی آرام، سنگین و آراسته.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY US -->
+    <section class="w-full py-16 md:py-24 px-4 sm:px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 items-start">
+          <div>
+            <div class="inline-flex items-center gap-2 text-[#d4af37] text-sm mb-5">
+              <span class="w-10 h-[1px] bg-[#d4af37]/60"></span>
+              چرا موج مانا؟
+            </div>
+
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-6 leading-[1.8]">
+              تفاوت در جزئیاتی است که آرامش ایجاد می‌کنند
+            </h2>
+
+            <p class="text-gray-300 text-sm md:text-base leading-8 md:leading-9 font-light text-right md:text-justify mb-5">
+              در بسیاری از مراسم‌ها، آنچه بیش از هر چیز دیده می‌شود، نتیجه نهایی است؛ اما آنچه این نتیجه را می‌سازد، مجموعه‌ای از جزئیات پشت‌صحنه است. زمان دقیق تحویل، آماده بودن اقلام پیش از شروع مراسم، شکل ارائه، آراستگی عوامل اجرایی، هماهنگی بین بخش‌ها و توانایی مدیریت درخواست‌های لحظه‌ای، همگی در کیفیت نهایی نقش تعیین‌کننده دارند.
+            </p>
+
+            <p class="text-gray-400 text-sm md:text-base leading-8 md:leading-9 font-light text-right md:text-justify">
+              موج مانا تلاش می‌کند تا این جزئیات را به‌صورت حرفه‌ای و متمرکز مدیریت کند. هدف، ایجاد تجربه‌ای مطمئن برای خانواده‌ای است که نمی‌خواهد در شرایط حساس سوگواری، درگیر پیگیری‌های متعدد و پراکنده باشد.
+            </p>
+          </div>
+
+          <div class="space-y-5">
+            <div class="glass-card rounded-3xl p-6">
+              <h3 class="text-white font-bold text-lg mb-3">۱. هماهنگی سریع و شفاف</h3>
+              <p class="text-gray-400 text-sm leading-8 font-light">
+                از اولین تماس تا نهایی شدن سفارش، اطلاعات لازم به‌صورت روشن و منظم بررسی می‌شود تا روند تصمیم‌گیری برای خانواده ساده‌تر باشد.
+              </p>
+            </div>
+
+            <div class="glass-card rounded-3xl p-6">
+              <h3 class="text-white font-bold text-lg mb-3">۲. امکان طراحی متناسب با نیاز هر مراسم</h3>
+              <p class="text-gray-400 text-sm leading-8 font-light">
+                هر مراسم شرایط خاص خود را دارد؛ به همین دلیل خدمات قابلیت تنظیم بر اساس فضا، تعداد مهمانان و سبک موردنظر خانواده را دارند.
+              </p>
+            </div>
+
+            <div class="glass-card rounded-3xl p-6">
+              <h3 class="text-white font-bold text-lg mb-3">۳. ظاهر حرفه‌ای با حفظ متانت</h3>
+              <p class="text-gray-400 text-sm leading-8 font-light">
+                طراحی لوکس در اینجا به معنی نمایش اغراق‌آمیز نیست؛ بلکه به معنی چیدمان دقیق، تناسب بصری، نظم و وقار است.
+              </p>
+            </div>
+
+            <div class="glass-card rounded-3xl p-6">
+              <h3 class="text-white font-bold text-lg mb-3">۴. پوشش خدمات اصلی و تکمیلی</h3>
+              <p class="text-gray-400 text-sm leading-8 font-light">
+                این امکان وجود دارد که خانواده به‌جای هماهنگی با چند مجموعه مختلف، بخش‌های مهم مراسم را در قالب یک ساختار منسجم مدیریت کند.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="w-full py-16 md:py-24 px-4 sm:px-6 bg-[#090909] border-y border-white/5">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-14 md:mb-16">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold gold-gradient-text mb-5">روند هماهنگی خدمات در موج مانا</h2>
+          <p class="text-gray-400 text-sm md:text-base max-w-4xl mx-auto leading-8 font-light">
+            برای اینکه فرآیند سفارش ساده، سریع و بدون پیچیدگی باشد، مراحل هماهنگی به شکل زیر انجام می‌شود.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+          <div class="bg-[#111] border border-white/5 rounded-3xl p-5 sm:p-6 md:p-7 relative overflow-hidden">
+            <div class="absolute top-4 left-4 text-6xl font-black text-[#d4af37]/10">01</div>
+            <h3 class="text-white font-bold text-xl mb-4 relative z-10">تماس یا ثبت درخواست</h3>
+            <p class="text-gray-400 text-sm leading-8 font-light relative z-10">
+              در اولین مرحله، اطلاعات اولیه شامل نوع مراسم، تاریخ، زمان، محل و نیازهای اصلی دریافت می‌شود.
+            </p>
+          </div>
+
+          <div class="bg-[#111] border border-white/5 rounded-3xl p-5 sm:p-6 md:p-7 relative overflow-hidden">
+            <div class="absolute top-4 left-4 text-6xl font-black text-[#d4af37]/10">02</div>
+            <h3 class="text-white font-bold text-xl mb-4 relative z-10">بررسی نیاز و پیشنهاد خدمات</h3>
+            <p class="text-gray-400 text-sm leading-8 font-light relative z-10">
+              بر اساس شرایط مراسم، ترکیب مناسب‌تری از خدمات پیشنهاد می‌شود تا انتخاب برای خانواده آسان‌تر باشد.
+            </p>
+          </div>
+
+          <div class="bg-[#111] border border-white/5 rounded-3xl p-5 sm:p-6 md:p-7 relative overflow-hidden">
+            <div class="absolute top-4 left-4 text-6xl font-black text-[#d4af37]/10">03</div>
+            <h3 class="text-white font-bold text-xl mb-4 relative z-10">نهایی‌سازی هماهنگی‌ها</h3>
+            <p class="text-gray-400 text-sm leading-8 font-light relative z-10">
+              جزئیات اجرای خدمات، زمان‌بندی تحویل، نوع چیدمان و اقلام نهایی مشخص و ثبت می‌شوند.
+            </p>
+          </div>
+
+          <div class="bg-[#111] border border-white/5 rounded-3xl p-5 sm:p-6 md:p-7 relative overflow-hidden">
+            <div class="absolute top-4 left-4 text-6xl font-black text-[#d4af37]/10">04</div>
+            <h3 class="text-white font-bold text-xl mb-4 relative z-10">اجرای محترمانه در روز مراسم</h3>
+            <p class="text-gray-400 text-sm leading-8 font-light relative z-10">
+              خدمات در روز برگزاری با نظم، آماده‌سازی مناسب و رعایت شأن مجلس در اختیار خانواده قرار می‌گیرند.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="w-full py-16 md:py-24 px-4 sm:px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-14">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-5">اهمیت انتخاب مجموعه مناسب برای خدمات ترحیم</h2>
+          <p class="text-gray-400 text-sm md:text-base max-w-4xl mx-auto leading-8 font-light">
+            آنچه در ظاهر ساده به نظر می‌رسد، در اجرا نیازمند دقت بسیار زیادی است.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div class="bg-[#111] border border-white/5 rounded-3xl p-5 sm:p-6 md:p-7">
+            <h3 class="text-white font-bold text-xl mb-4">کیفیت در جزئیات</h3>
+            <p class="text-gray-400 text-sm leading-8 font-light">
+              تفاوت یک اجرای معمولی با یک اجرای حرفه‌ای در جزئیات مشخص می‌شود؛ از نوع بسته‌بندی و نظم چیدمان گرفته تا تمیزی، تقارن، هماهنگی رنگ‌ها و آمادگی قبل از ورود مهمانان.
+            </p>
+          </div>
+
+          <div class="bg-[#111] border border-white/5 rounded-3xl p-5 sm:p-6 md:p-7">
+            <h3 class="text-white font-bold text-xl mb-4">احترام به شرایط خانواده</h3>
+            <p class="text-gray-400 text-sm leading-8 font-light">
+              در چنین موقعیت‌هایی، خانواده‌ها معمولاً فرصت و تمرکز کافی برای مدیریت چندین بخش جداگانه را ندارند. مجموعه مناسب باید بتواند این شرایط را درک کرده و پاسخ‌گو، آرام و دقیق باشد.
+            </p>
+          </div>
+
+          <div class="bg-[#111] border border-white/5 rounded-3xl p-5 sm:p-6 md:p-7">
+            <h3 class="text-white font-bold text-xl mb-4">هماهنگی ظاهری و اجرایی</h3>
+            <p class="text-gray-400 text-sm leading-8 font-light">
+              زمانی که پذیرایی، گل‌آرایی، میز یادبود و خدمات جانبی در یک سبک هماهنگ اجرا شوند، کل مراسم ظاهر حرفه‌ای‌تر و آرام‌تری پیدا می‌کند.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-10 bg-[#111] border border-[#d4af37]/10 rounded-3xl p-6 md:p-10">
+          <p class="text-gray-300 text-sm md:text-base leading-8 md:leading-9 font-light text-right md:text-justify mb-5">
+            انتخاب مجموعه‌ای که به‌صورت تخصصی در حوزه خدمات مجالس ترحیم فعالیت می‌کند، می‌تواند تأثیر زیادی در نتیجه نهایی داشته باشد. این انتخاب فقط به معنی تهیه چند قلم خدمات نیست؛ بلکه به معنای سپردن بخشی از فضای مراسم به گروهی است که می‌داند در چنین موقعیتی چه چیزهایی مهم‌ترند: آرامش، احترام، زمان‌بندی، تمیزی، ظاهر آراسته، نحوه برخورد و دقت در اجرا.
+          </p>
+
+          <p class="text-gray-400 text-sm md:text-base leading-8 md:leading-9 font-light text-right md:text-justify">
+            موج مانا با تأکید بر همین اصول، خدماتی را طراحی کرده که هم از نظر ظاهری لوکس و آبرومند باشند و هم از نظر اجرایی، قابل اعتماد و منظم. این نگاه باعث می‌شود خانواده‌ها بتوانند با اطمینان بیشتری برنامه‌ریزی مراسم خود را انجام دهند.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="w-full py-16 md:py-24 px-4 sm:px-6 bg-[#0a0a0a] border-y border-white/5">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+          <div>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold gold-gradient-text mb-4">نمونه فضا و سبک خدمات</h2>
+            <p class="text-gray-400 text-sm md:text-base leading-8 font-light max-w-3xl">
+              تصویری از حال‌وهوای رسمی، سنگین و آراسته‌ای که در طراحی و اجرای خدمات موج مانا دنبال می‌شود.
+            </p>
+          </div>
+          <a href="gallery.html" class="border border-[#d4af37] text-[#d4af37] px-6 py-3 rounded-full font-bold hover:bg-[#d4af37] hover:text-black transition-all text-center w-full md:w-auto">
+            مشاهده گالری
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+          <div class="image-frame h-72"><img src="img/نمونه سرویس 1.png" alt="نمونه خدمات ترحیم ۱"></div>
+          <div class="image-frame h-72"><img src="img/نمونه سرویس 2.png" alt="نمونه خدمات ترحیم ۲"></div>
+          <div class="image-frame h-72"><img src="img/نمونه سرویس 3.png" alt="نمونه خدمات ترحیم ۳"></div>
+          <div class="image-frame h-72"><img src="img/نمونه سرویس4.png" alt="نمونه خدمات ترحیم ۴"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="w-full py-16 md:py-24 px-4 sm:px-6">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-14">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold gold-gradient-text mb-5">سوالات متداول</h2>
+          <p class="text-gray-400 text-sm md:text-base leading-8 font-light">
+            چند پرسش رایج درباره سفارش و هماهنگی خدمات مجالس ترحیم
+          </p>
+        </div>
+
+        <div class="space-y-4">
+
+          <details class="faq-item bg-[#111] border border-white/5 rounded-2xl p-5">
+            <summary class="flex items-center justify-between gap-4">
+              <span class="text-white font-bold">آیا امکان سفارش فقط یکی از خدمات وجود دارد؟</span>
+              <span class="text-[#d4af37] text-xl">+</span>
+            </summary>
+            <p class="text-gray-400 text-sm leading-8 font-light mt-4">
+              بله. خدمات موج مانا می‌توانند به‌صورت تکی یا ترکیبی سفارش داده شوند. برخی خانواده‌ها فقط حلوا و خرما یا پک پذیرایی نیاز دارند و برخی دیگر ترجیح می‌دهند مجموعه‌ای کامل از خدمات مانند پذیرایی، گل‌آرایی، میز یادبود و هماهنگی مداح و قاری را به‌صورت یکجا دریافت کنند.
+            </p>
+          </details>
+
+          <details class="faq-item bg-[#111] border border-white/5 rounded-2xl p-5">
+            <summary class="flex items-center justify-between gap-4">
+              <span class="text-white font-bold">برای ثبت سفارش چه اطلاعاتی لازم است؟</span>
+              <span class="text-[#d4af37] text-xl">+</span>
+            </summary>
+            <p class="text-gray-400 text-sm leading-8 font-light mt-4">
+              معمولاً زمان و تاریخ مراسم، محل برگزاری، تعداد تقریبی مهمانان، نوع خدمات موردنیاز و سطح تقریبی سفارش از جمله اطلاعات اولیه‌ای هستند که به ما کمک می‌کنند پیشنهاد مناسب‌تری ارائه دهیم.
+            </p>
+          </details>
+
+          <details class="faq-item bg-[#111] border border-white/5 rounded-2xl p-5">
+            <summary class="flex items-center justify-between gap-4">
+              <span class="text-white font-bold">آیا خدمات برای مسجد، منزل و آرامستان قابل اجراست؟</span>
+              <span class="text-[#d4af37] text-xl">+</span>
+            </summary>
+            <p class="text-gray-400 text-sm leading-8 font-light mt-4">
+              بله، بسته به نوع خدمت و شرایط اجرایی، امکان هماهنگی برای منزل، مسجد، حسینیه، آرامستان و برخی فضاهای رسمی وجود دارد. جزئیات دقیق‌تر در زمان هماهنگی بررسی می‌شود.
+            </p>
+          </details>
+
+          <details class="faq-item bg-[#111] border border-white/5 rounded-2xl p-5">
+            <summary class="flex items-center justify-between gap-4">
+              <span class="text-white font-bold">آیا خدمات برای مراسم کوچک هم مناسب است؟</span>
+              <span class="text-[#d4af37] text-xl">+</span>
+            </summary>
+            <p class="text-gray-400 text-sm leading-8 font-light mt-4">
+              بله، خدمات قابل تنظیم هستند و می‌توان آن‌ها را برای مراسم‌های کوچک، خانوادگی، متوسط یا پرجمعیت متناسب‌سازی کرد. هدف این است که خدمات بیش از نیاز یا کمتر از نیاز نباشند.
+            </p>
+          </details>
+
+          <details class="faq-item bg-[#111] border border-white/5 rounded-2xl p-5">
+            <summary class="flex items-center justify-between gap-4">
+              <span class="text-white font-bold">آیا امکان مشاوره قبل از ثبت نهایی سفارش وجود دارد؟</span>
+              <span class="text-[#d4af37] text-xl">+</span>
+            </summary>
+            <p class="text-gray-400 text-sm leading-8 font-light mt-4">
+              بله، پیش از نهایی شدن سفارش می‌توانید درباره نوع خدمات، ترکیب مناسب، اولویت‌ها و مدل اجرای مراسم مشاوره دریافت کنید تا تصمیم دقیق‌تری بگیرید.
+            </p>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="w-full py-16 md:py-24 px-4 sm:px-6">
+      <div class="max-w-6xl mx-auto rounded-[2rem] md:rounded-[2.25rem] border border-[#d4af37]/20 bg-gradient-to-b from-[#121212] to-[#090909] p-6 md:p-14 text-center gold-shadow relative overflow-hidden">
+        <div class="absolute inset-0 opacity-15 bg-[radial-gradient(circle_at_center,_#d4af37,_transparent_38%)]"></div>
+
+        <div class="relative z-10">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#d4af37]/20 bg-[#d4af37]/5 text-[#d4af37] text-xs md:text-sm mb-6">
+            هماهنگی سریع و محترمانه
+          </div>
+
+          <h2 class="text-2xl sm:text-3xl md:text-5xl font-extrabold gold-gradient-text mb-6 leading-[1.7]">
+            برای هماهنگی خدمات مراسم با موج مانا<br>
+            همین حالا با ما در ارتباط باشید
+          </h2>
+
+          <p class="text-gray-300 text-sm md:text-base max-w-4xl mx-auto leading-8 md:leading-9 font-light mb-8">
+            اگر برای برگزاری مراسم ختم، سوم، هفتم، چهلم، سالگرد یا یادبود به خدماتی منظم، آبرومند و حرفه‌ای نیاز دارید، کافی است اطلاعات اولیه مراسم را با ما در میان بگذارید. بر اساس شرایط مراسم، بهترین ترکیب خدمات به شما پیشنهاد می‌شود تا همه‌چیز با نظم، وقار و آرامش بیشتری پیش برود.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="tel:02126117883" class="shine-btn bg-[#d4af37] text-black font-bold px-8 py-4 rounded-full hover:scale-105 transition-all w-full sm:w-auto text-center">
+              تماس مستقیم
+            </a>
+            <a href="order.html" class="border border-[#d4af37] text-[#d4af37] font-bold px-8 py-4 rounded-full hover:bg-[#d4af37] hover:text-black transition-all w-full sm:w-auto text-center">
+              ثبت سفارش آنلاین
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-gradient-to-b from-[#111] to-black w-full pt-16 md:pt-24 pb-10 px-4 sm:px-6 border-t border-white/5">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-10 pb-14 border-b border-white/5">
+        <div class="lg:col-span-2">
+          <img src="img/mog.png" alt="لوگو موج مانا" class="w-40 md:w-44 mb-6 opacity-85 drop-shadow-[0_0_15px_rgba(212,175,55,0.20)]">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">موج مانا</h2>
+          <p class="text-gray-400 text-sm md:text-base leading-8 font-light text-right md:text-justify max-w-2xl">
+            موج مانا ارائه‌دهنده خدمات تخصصی مجالس ترحیم با رویکردی منظم، محترمانه و حرفه‌ای است. تمرکز ما بر هماهنگی صحیح خدمات، کیفیت ظاهری مناسب، اجرای دقیق و کاهش دغدغه‌های خانواده در روزهای سوگواری است.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-white font-bold text-lg mb-5">دسترسی سریع</h3>
+          <ul class="space-y-3 text-sm">
+            <li><a href="index.html" class="text-gray-400 hover:text-[#d4af37] transition-colors">خانه</a></li>
+            <li><a href="tarhim-services.html" class="text-gray-400 hover:text-[#d4af37] transition-colors">خدمات مجالس ترحیم</a></li>
+            <li><a href="gallery.html" class="text-gray-400 hover:text-[#d4af37] transition-colors">گالری</a></li>
+            <li><a href="about.html" class="text-gray-400 hover:text-[#d4af37] transition-colors">درباره ما</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-[#d4af37] transition-colors">تماس با ما</a></li>
+            <li><a href="order.html" class="text-gray-400 hover:text-[#d4af37] transition-colors">ثبت سفارش</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-white font-bold text-lg mb-5">خدمات</h3>
+          <ul class="space-y-3 text-sm">
+            <li><a href="halva-khorma.html" class="text-gray-400 hover:text-[#d4af37] transition-colors">حلوا و خرما</a></li>
+            <li><a href="pack-service.html" class="text-gray-400 hover:text-[#d4af37] transition-colors">پک پذیرایی</a></li>
+            <li><a href="golarayi.html" class="text-gray-400 hover:text-[#d4af37] transition-colors">گل‌آرایی و تاج گل</a></li>
+            <li><a href="miz-yadbood.html" class="text-gray-400 hover:text-[#d4af37] transition-colors">میز یادبود</a></li>
+            <li><a href="madah-ghari.html" class="text-gray-400 hover:text-[#d4af37] transition-colors">مداح و قاری</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 py-10">
+        <div class="bg-[#111] border border-white/5 rounded-2xl p-6 text-center">
+          <span class="text-gray-500 text-xs mb-2 block">شماره تماس</span>
+          <a href="tel:02126117883" class="text-[#d4af37] text-2xl font-bold hover:text-white transition-colors" dir="ltr">021-26117883</a>
+        </div>
+
+        <div class="bg-[#111] border border-white/5 rounded-2xl p-6 text-center">
+          <span class="text-gray-500 text-xs mb-2 block">موبایل</span>
+          <a href="tel:09121234567" class="text-[#d4af37] text-2xl font-bold hover:text-white transition-colors" dir="ltr">0912-123-4567</a>
+        </div>
+
+        <div class="bg-[#111] border border-white/5 rounded-2xl p-6 text-center">
+          <span class="text-gray-500 text-xs mb-2 block">پاسخ‌گویی</span>
+          <p class="text-[#d4af37] text-xl font-bold">همه‌روزه</p>
+        </div>
+      </div>
+
+      <div class="gold-line my-8"></div>
+
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-right">
+        <p class="text-gray-500 text-sm">© تمامی حقوق این وب‌سایت برای موج مانا محفوظ است.</p>
+        <a href="#" class="text-blue-300 text-sm hover:text-white transition-colors">طراحی شده توسط تیم تخصصی mmd cod</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileDropdownBtns = document.querySelectorAll('.mobileDropdownBtn');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+      menuBtn.setAttribute('aria-expanded', !expanded);
+    });
+
+    mobileDropdownBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+
+</body>
+</html>

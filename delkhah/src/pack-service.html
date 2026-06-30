@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>پک پذیرایی | موج مانا</title>
+  <meta name="description" content="خدمات پک پذیرایی مراسم ترحیم توسط موج مانا؛ با بسته‌بندی منظم، محترمانه و متناسب با فضای مجلس." />
+  <meta name="keywords" content="پک پذیرایی, پک ترحیم, پذیرایی مراسم ترحیم, خدمات ترحیم, موج مانا" />
+  <link href="output.css" rel="stylesheet" />
+
+  <style>
+    html { scroll-behavior: smooth; }
+
+    body {
+      background:
+        radial-gradient(circle at top center, rgba(212,175,55,0.08), transparent 24%),
+        radial-gradient(circle at 85% 15%, rgba(212,175,55,0.04), transparent 18%),
+        linear-gradient(to bottom, #050505, #080808, #030303);
+      color: white;
+    }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0a0a0a; }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(to bottom, #d4af37, #8c6b16);
+      border-radius: 20px;
+    }
+
+    .gold-gradient-text {
+      background: linear-gradient(90deg, #fff8e6 0%, #f6dc8a 20%, #d4af37 45%, #a87d1e 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 4px 24px rgba(212,175,55,.12);
+    }
+
+    .glass-card {
+      background: rgba(17,17,17,.72);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,.06);
+      box-shadow: 0 10px 40px rgba(0,0,0,.25);
+    }
+
+    .gold-shadow {
+      box-shadow: 0 10px 45px rgba(212,175,55,.10);
+    }
+
+    .gold-shadow-hover:hover {
+      box-shadow: 0 16px 55px rgba(212,175,55,.16);
+      transform: translateY(-6px);
+    }
+
+    .dropdown-menu {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      transition: all .28s ease;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .gold-line {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to left, transparent, rgba(212,175,55,.7), transparent);
+    }
+
+    .shine-btn {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .shine-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -120%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,.35), transparent);
+      transform: skewX(-20deg);
+      transition: .8s;
+      z-index: -1;
+    }
+
+    .shine-btn:hover::before {
+      right: 140%;
+    }
+
+    .hero-ring {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 999px;
+      border: 1px solid rgba(212,175,55,.08);
+      pointer-events: none;
+    }
+
+    .hero-ring.r1 { top: -110px; left: -80px; }
+    .hero-ring.r2 { top: -50px; left: -20px; width: 380px; height: 380px; }
+
+    .feature-card {
+      position: relative;
+      border-radius: 2rem;
+      padding: 2rem;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.06);
+      background: linear-gradient(to bottom, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      backdrop-filter: blur(10px);
+      transition: all .35s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(212,175,55,.22);
+      box-shadow: 0 20px 60px rgba(212,175,55,.10);
+    }
+
+    .icon-box {
+      width: 72px;
+      height: 72px;
+      border-radius: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(212,175,55,.08);
+      border: 1px solid rgba(212,175,55,.18);
+      color: #d4af37;
+      font-size: 2rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .step-card {
+      border-radius: 2rem;
+      padding: 2rem;
+      background: rgba(255,255,255,.02);
+      border: 1px solid rgba(255,255,255,.06);
+      transition: all .3s ease;
+    }
+
+    .step-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(212,175,55,.2);
+      box-shadow: 0 18px 45px rgba(212,175,55,.08);
+    }
+
+    .step-number {
+      width: 54px;
+      height: 54px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #d4af37, #f1d472);
+      color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 25px rgba(212,175,55,.18);
+    }
+
+    .mini-badge {
+      background: rgba(212,175,55,.07);
+      border: 1px solid rgba(212,175,55,.16);
+      color: #f3d97a;
+    }
+
+    .list-check li {
+      position: relative;
+      padding-right: 1.6rem;
+    }
+
+    .list-check li::before {
+      content: "✦";
+      position: absolute;
+      right: 0;
+      top: 0;
+      color: #d4af37;
+    }
+  </style>
+</head>
+
+<body class="overflow-x-hidden font-vazir selection:bg-[#d4af37] selection:text-black">
+
+  <!-- HEADER -->
+  <header class="w-full px-5 md:px-10 bg-black/80 backdrop-blur-xl border-b border-[#d4af37]/10 flex items-center justify-between flex-wrap py-3 sticky top-0 z-50">
+    <ul class="flex flex-wrap justify-center md:justify-start gap-4 md:gap-8 relative items-center">
+      <li>
+        <a href="index.html" class="py-2 text-sm font-bold text-gray-300 border-b-2 border-transparent hover:border-[#d4af37] hover:text-white block transition-all">
+          خانه
+        </a>
+      </li>
+
+      <li class="relative dropdown">
+        <a href="tarhim-services.html" class="py-2 text-sm font-bold text-gray-300 border-b-2 border-transparent hover:border-[#d4af37] hover:text-white flex items-center gap-2 transition-all">
+          خدمات
+          <span class="text-[10px]">▼</span>
+        </a>
+
+        <ul class="dropdown-menu absolute right-0 top-full mt-3 w-72 bg-[#0b0b0b]/95 backdrop-blur-xl border border-[#d4af37]/20 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.45)] z-50 overflow-hidden">
+          <li><a href="tarhim-services.html" class="block px-5 py-3 text-sm text-gray-300 hover:bg-[#d4af37]/10 hover:text-white transition-all">خدمات مجالس ترحیم</a></li>
+          <li><a href="halva-khorma.html" class="block px-5 py-3 text-sm text-gray-300 hover:bg-[#d4af37]/10 hover:text-white transition-all">حلوا و خرما</a></li>
+          <li><a href="pack-service.html" class="block px-5 py-3 text-sm text-white bg-[#d4af37]/10 transition-all">پک پذیرایی</a></li>
+          <li><a href="golarayi.html" class="block px-5 py-3 text-sm text-gray-300 hover:bg-[#d4af37]/10 hover:text-white transition-all">گل‌آرایی و تاج گل</a></li>
+          <li><a href="miz-yadbood.html" class="block px-5 py-3 text-sm text-gray-300 hover:bg-[#d4af37]/10 hover:text-white transition-all">میز یادبود</a></li>
+          <li><a href="madah-ghari.html" class="block px-5 py-3 text-sm text-gray-300 hover:bg-[#d4af37]/10 hover:text-white transition-all">مداح و قاری</a></li>
+        </ul>
+      </li>
+
+      <li><a href="gallery.html" class="py-2 text-sm font-bold text-gray-300 border-b-2 border-transparent hover:border-[#d4af37] hover:text-white block transition-all">گالری</a></li>
+      <li><a href="about.html" class="py-2 text-sm font-bold text-gray-300 border-b-2 border-transparent hover:border-[#d4af37] hover:text-white block transition-all">درباره ما</a></li>
+      <li><a href="contact.html" class="py-2 text-sm font-bold text-gray-300 border-b-2 border-transparent hover:border-[#d4af37] hover:text-white block transition-all">تماس با ما</a></li>
+      <li>
+        <a href="order.html" class="shine-btn py-2 px-5 rounded-full bg-[#d4af37] text-black text-sm font-bold block">
+          سفارش فوری
+        </a>
+      </li>
+    </ul>
+
+    <div style="direction:ltr" class="hidden md:block">
+      <a href="index.html" class="block hover:scale-105 transition-transform duration-500">
+        <img src="img/mog.png" alt="لوگو موج مانا" class="w-28 object-contain drop-shadow-[0_0_14px_rgba(212,175,55,0.55)]">
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden py-16 md:py-24">
+    <div class="hero-ring r1 hidden xl:block"></div>
+    <div class="hero-ring r2 hidden xl:block"></div>
+    <div class="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,.08),rgba(0,0,0,.68))]"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+        <div>
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#d4af37]/20 bg-[#d4af37]/5 text-[#d4af37] text-xs md:text-sm mb-6">
+            <span class="w-2 h-2 rounded-full bg-[#d4af37] animate-pulse"></span>
+            خدمات پک پذیرایی مراسم
+          </div>
+
+          <h1 class="text-4xl md:text-6xl font-farhang pr-10 pt-5 leading-[1.8] md:leading-[1.55] gold-gradient-text mb-6">
+            پک پذیرایی مراسم ترحیم   
+          </h1>
+
+          <p class="text-gray-300 text-sm md:text-base leading-8 md:leading-9 font-light text-justify mb-5">
+            پک پذیرایی یکی از راهکارهای مناسب برای ارائه منظم و محترمانه اقلام پذیرایی در مراسم ترحیم است. این شیوه باعث می‌شود روند توزیع سریع‌تر، بهداشتی‌تر و هماهنگ‌تر انجام شود و ظاهر کلی پذیرایی نیز آراسته‌تر به نظر برسد.
+          </p>
+
+          <p class="text-gray-400 text-sm md:text-base leading-8 md:leading-9 font-light text-justify">
+            در موج مانا، پک‌های پذیرایی با توجه به نوع مراسم، تعداد مهمانان و سبک برگزاری، به‌صورت متناسب آماده و ارائه می‌شوند.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 mt-10">
+            <a href="#service-details" class="shine-btn bg-gradient-to-r from-[#d4af37] to-[#f1d472] text-black font-bold px-8 py-4 rounded-full hover:scale-105 transition-all duration-300 text-center shadow-[0_0_35px_rgba(212,175,55,0.22)]">
+              جزئیات خدمت
+            </a>
+            <a href="order.html" class="border border-[#d4af37] text-[#d4af37] font-bold px-8 py-4 rounded-full hover:bg-[#d4af37] hover:text-black transition-all duration-300 text-center">
+              ثبت سفارش
+            </a>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-[2rem] p-8 md:p-10 gold-shadow">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-[#111]/80 border border-white/5 rounded-2xl p-5 text-center">
+              <div class="text-3xl mb-3 text-[#d4af37]">📦</div>
+              <p class="text-white font-bold">بسته‌بندی منظم</p>
+            </div>
+            <div class="bg-[#111]/80 border border-white/5 rounded-2xl p-5 text-center">
+              <div class="text-3xl mb-3 text-[#d4af37]">☕</div>
+              <p class="text-white font-bold">اقلام پذیرایی</p>
+            </div>
+            <div class="bg-[#111]/80 border border-white/5 rounded-2xl p-5 text-center">
+              <div class="text-3xl mb-3 text-[#d4af37]">🤍</div>
+              <p class="text-white font-bold">ارائه محترمانه</p>
+            </div>
+            <div class="bg-[#111]/80 border border-white/5 rounded-2xl p-5 text-center">
+              <div class="text-3xl mb-3 text-[#d4af37]">✨</div>
+              <p class="text-white font-bold">توزیع آسان</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE DETAILS -->
+  <section id="service-details" class="w-full py-20 px-6 bg-[#090909] border-y border-white/5">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-3 gap-8 items-start">
+
+      <div class="lg:col-span-2 glass-card rounded-[2rem] p-8 md:p-10 gold-shadow">
+        <div class="inline-flex items-center gap-2 text-[#d4af37] text-sm mb-4">
+          <span class="w-10 h-[1px] bg-[#d4af37]/60"></span>
+          معرفی خدمت
+        </div>
+
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-5">
+          پک پذیرایی؛ راهکاری منظم و شایسته برای پذیرایی مراسم
+        </h2>
+
+        <p class="text-gray-400 text-sm md:text-base leading-8 md:leading-9 font-light text-justify mb-5">
+          در مراسم ترحیم، پذیرایی از مهمانان باید با نظم، احترام و هماهنگی انجام شود. استفاده از پک پذیرایی این امکان را فراهم می‌کند که اقلام موردنیاز به‌صورت آماده، مرتب و در قالبی یکپارچه در اختیار مهمانان قرار گیرد.
+        </p>
+
+        <p class="text-gray-400 text-sm md:text-base leading-8 md:leading-9 font-light text-justify mb-5">
+          این روش علاوه بر تسهیل در توزیع، به حفظ ظاهر منظم مجلس نیز کمک می‌کند و برای فضاهایی مانند مسجد، سالن، حسینیه یا مراسم‌های با تعداد مهمان بیشتر بسیار کاربردی است.
+        </p>
+
+        <p class="text-gray-400 text-sm md:text-base leading-8 md:leading-9 font-light text-justify">
+          در موج مانا، اقلام داخل پک، نوع بسته‌بندی و نحوه ارائه می‌تواند متناسب با سبک مراسم و نظر خانواده تنظیم شود.
+        </p>
+      </div>
+
+      <div class="space-y-6">
+        <div class="glass-card rounded-[2rem] p-7">
+          <div class="text-3xl mb-4 text-[#d4af37]">🧾</div>
+          <h3 class="text-white font-bold text-xl mb-4">قابل تنظیم بر اساس نیاز</h3>
+          <p class="text-gray-400 text-sm leading-8 font-light text-justify">
+            ترکیب اقلام و تعداد پک‌ها بر اساس نوع مراسم، محل برگزاری و تعداد مهمانان تعیین می‌شود.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-[2rem] p-7">
+          <div class="text-3xl mb-4 text-[#d4af37]">🚚</div>
+          <h3 class="text-white font-bold text-xl mb-4">آماده‌سازی و تحویل هماهنگ</h3>
+          <p class="text-gray-400 text-sm leading-8 font-light text-justify">
+            بسته‌ها در زمان مناسب آماده و برای ارائه یا توزیع در محل مراسم هماهنگ می‌شوند.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ITEMS -->
+  <section class="w-full py-24 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-extrabold gold-gradient-text mb-5">
+          اقلام قابل قرارگیری در پک پذیرایی
+        </h2>
+        <p class="text-gray-400 text-sm md:text-base leading-8 font-light max-w-3xl mx-auto">
+          محتویات پک پذیرایی می‌تواند با توجه به نیاز مراسم و نظر خانواده انتخاب شود.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-7">
+        <div class="feature-card gold-shadow-hover">
+          <div class="icon-box">🧃</div>
+          <h3 class="text-white text-2xl font-bold mb-4">نوشیدنی</h3>
+          <p class="text-gray-400 text-sm leading-8 font-light text-justify">
+            آب معدنی، آبمیوه یا سایر گزینه‌های متناسب با نوع مراسم و زمان برگزاری.
+          </p>
+        </div>
+
+        <div class="feature-card gold-shadow-hover">
+          <div class="icon-box">🍪</div>
+          <h3 class="text-white text-2xl font-bold mb-4">اقلام خوراکی سبک</h3>
+          <p class="text-gray-400 text-sm leading-8 font-light text-justify">
+            انواع خوراکی‌های سبک و مناسب پذیرایی رسمی که به‌سادگی قابل ارائه باشند.
+          </p>
+        </div>
+
+        <div class="feature-card gold-shadow-hover">
+          <div class="icon-box">🌹</div>
+          <h3 class="text-white text-2xl font-bold mb-4">المان‌های مکمل</h3>
+          <p class="text-gray-400 text-sm leading-8 font-light text-justify">
+            در صورت نیاز، امکان افزودن اقلام جانبی ساده و هماهنگ با فضای مراسم وجود دارد.
+          </p>
+        </div>
+
+        <div class="feature-card gold-shadow-hover">
+          <div class="icon-box">📦</div>
+          <h3 class="text-white text-2xl font-bold mb-4">بسته‌بندی مناسب</h3>
+          <p class="text-gray-400 text-sm leading-8 font-light text-justify">
+            انتخاب نوع بسته‌بندی با تأکید بر نظم، آراستگی و سهولت در توزیع میان مهمانان.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKAGING & BENEFITS -->
+  <section class="w-full py-24 px-6 bg-[#090909] border-y border-white/5">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 items-stretch">
+      <div class="glass-card rounded-[2rem] p-8 md:p-10 gold-shadow">
+        <div class="inline-flex items-center gap-2 text-[#d4af37] text-sm mb-4">
+          <span class="w-10 h-[1px] bg-[#d4af37]/60"></span>
+          سبک ارائه
+        </div>
+
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-6">
+          بسته‌بندی متناسب با شأن مراسم
+        </h2>
+
+        <p class="text-gray-400 text-sm md:text-base leading-8 md:leading-9 font-light text-justify mb-6">
+          ظاهر پک پذیرایی نیز مانند محتوای آن اهمیت دارد. بسته‌بندی باید ساده، مرتب و هماهنگ با فضای رسمی و محترمانه مراسم باشد. در طراحی این خدمت، از ارائه شلوغ یا نامتناسب پرهیز می‌شود تا نتیجه نهایی آراسته و متین باقی بماند.
+        </p>
+
+        <ul class="list-check space-y-4 text-gray-300 text-sm md:text-base leading-8 font-light">
+          <li>بسته‌بندی یکدست و مرتب</li>
+          <li>قابل استفاده برای توزیع سریع‌تر</li>
+          <li>مناسب برای مسجد، سالن و مراسم‌های پرمهمان</li>
+          <li>قابل هماهنگی با سایر بخش‌های خدمات مراسم</li>
+        </ul>
+      </div>
+
+      <div class="glass-card rounded-[2rem] p-8 md:p-10 gold-shadow">
+        <div class="inline-flex items-center gap-2 text-[#d4af37] text-sm mb-4">
+          <span class="w-10 h-[1px] bg-[#d4af37]/60"></span>
+          مزایای خدمت
+        </div>
+
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-6">
+          چرا پک پذیرایی انتخاب مناسبی است؟
+        </h2>
+
+        <div class="space-y-5">
+          <div class="bg-[#111]/70 border border-white/5 rounded-2xl p-5">
+            <h3 class="text-white font-bold mb-2">پذیرایی منظم‌تر</h3>
+            <p class="text-gray-400 text-sm leading-8 font-light">
+              توزیع پک‌ها باعث می‌شود روند پذیرایی سریع، مرتب و بدون آشفتگی انجام شود.
+            </p>
+          </div>
+
+          <div class="bg-[#111]/70 border border-white/5 rounded-2xl p-5">
+            <h3 class="text-white font-bold mb-2">کاهش درگیری اجرایی</h3>
+            <p class="text-gray-400 text-sm leading-8 font-light">
+              خانواده و برگزارکنندگان با دغدغه کمتری می‌توانند بخش پذیرایی را مدیریت کنند.
+            </p>
+          </div>
+
+          <div class="bg-[#111]/70 border border-white/5 rounded-2xl p-5">
+            <h3 class="text-white font-bold mb-2">ارائه آراسته‌تر</h3>
+            <p class="text-gray-400 text-sm leading-8 font-light">
+              یکدست بودن اقلام و بسته‌بندی، جلوه بصری مناسب‌تری به پذیرایی مراسم می‌بخشد.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="w-full py-24 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="mini-badge inline-flex px-4 py-2 rounded-full text-xs md:text-sm mb-5">
+          روند سفارش پک پذیرایی
+        </span>
+        <h2 class="text-3xl md:text-4xl font-extrabold gold-gradient-text mb-5">
+          مراحل هماهنگی این خدمت
+        </h2>
+        <p class="text-gray-400 text-sm md:text-base leading-8 font-light max-w-3xl mx-auto">
+          برای ثبت سفارش پک پذیرایی، روند همکاری ساده، شفاف و قابل هماهنگی در نظر گرفته شده است.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3 class="text-white text-xl font-bold mb-4">ثبت درخواست</h3>
+          <p class="text-gray-400 text-sm leading-8 font-light">
+            اطلاعات مربوط به زمان مراسم، محل برگزاری و تعداد تقریبی مهمانان دریافت می‌شود.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3 class="text-white text-xl font-bold mb-4">تعیین اقلام پک</h3>
+          <p class="text-gray-400 text-sm leading-8 font-light">
+            نوع اقلام، تعداد موردنیاز و سبک بسته‌بندی متناسب با مراسم مشخص می‌شود.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3 class="text-white text-xl font-bold mb-4">آماده‌سازی سفارش</h3>
+          <p class="text-gray-400 text-sm leading-8 font-light">
+            پک‌ها با نظم و هماهنگی لازم پیش از زمان مراسم آماده می‌شوند.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <h3 class="text-white text-xl font-bold mb-4">تحویل و ارائه</h3>
+          <p class="text-gray-400 text-sm leading-8 font-light">
+            بسته‌ها در زمان مقرر برای توزیع یا تحویل در محل مراسم هماهنگ می‌گردند.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USAGE -->
+  <section class="w-full py-24 px-6 bg-[#090909] border-y border-white/5">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 items-stretch">
+      <div class="glass-card rounded-[2rem] p-8 md:p-10 gold-shadow">
+        <div class="inline-flex items-center gap-2 text-[#d4af37] text-sm mb-4">
+          <span class="w-10 h-[1px] bg-[#d4af37]/60"></span>
+          مناسب برای
+        </div>
+
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-6">
+          این خدمت برای چه مراسم‌هایی مناسب است؟
+        </h2>
+
+        <ul class="list-check space-y-4 text-gray-300 text-sm md:text-base leading-8 font-light">
+          <li>مراسم ختم و ترحیم در مسجد</li>
+          <li>مراسم یادبود در سالن یا حسینیه</li>
+          <li>مراسم‌های با تعداد مهمان بالا</li>
+          <li>پذیرایی‌هایی که نیاز به توزیع سریع و منظم دارند</li>
+        </ul>
+      </div>
+
+      <div class="glass-card rounded-[2rem] p-8 md:p-10 gold-shadow">
+        <div class="inline-flex items-center gap-2 text-[#d4af37] text-sm mb-4">
+          <span class="w-10 h-[1px] bg-[#d4af37]/60"></span>
+          نکته اجرایی
+        </div>
+
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-6">
+          امکان هماهنگی با سایر خدمات
+        </h2>
+
+        <p class="text-gray-400 text-sm md:text-base leading-8 md:leading-9 font-light text-justify mb-5">
+          پک پذیرایی می‌تواند در کنار سایر خدمات مراسم مانند گل‌آرایی، میز یادبود، حلوا و خرما یا هماهنگی کلی مجلس ارائه شود تا همه بخش‌ها به‌صورت یکپارچه و هماهنگ مدیریت شوند.
+        </p>
+
+        <p class="text-gray-400 text-sm md:text-base leading-8 md:leading-9 font-light text-justify">
+          این موضوع باعث می‌شود ظاهر مراسم و روند اجرایی آن یکدست‌تر و حرفه‌ای‌تر پیش برود.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="w-full py-24 px-6">
+    <div class="max-w-6xl mx-auto rounded-[2.25rem] border border-[#d4af37]/20 bg-gradient-to-b from-[#121212] to-[#090909] p-8 md:p-14 text-center gold-shadow relative overflow-hidden">
+      <div class="absolute inset-0 opacity-15 bg-[radial-gradient(circle_at_center,_#d4af37,_transparent_38%)]"></div>
+
+      <div class="relative z-10">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#d4af37]/20 bg-[#d4af37]/5 text-[#d4af37] text-xs md:text-sm mb-6">
+          برای سفارش پک پذیرایی
+        </div>
+
+        <h2 class="text-3xl md:text-5xl font-extrabold gold-gradient-text mb-6 leading-[1.7]">
+          برای هماهنگی و سفارش<br>
+          پک پذیرایی مراسم با ما در ارتباط باشید
+        </h2>
+
+        <p class="text-gray-300 text-sm md:text-base max-w-4xl mx-auto leading-8 md:leading-9 font-light mb-8">
+          اگر برای مراسم خود به پک پذیرایی منظم، آراسته و متناسب با فضای مجلس نیاز دارید، می‌توانید از طریق صفحه سفارش یا تماس مستقیم، درخواست خود را ثبت کنید.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="order.html" class="shine-btn bg-[#d4af37] text-black font-bold px-8 py-4 rounded-full hover:scale-105 transition-all">
+            ثبت سفارش
+          </a>
+          <a href="contact.html" class="border border-[#d4af37] text-[#d4af37] font-bold px-8 py-4 rounded-full hover:bg-[#d4af37] hover:text-black transition-all">
+            تماس و مشاوره
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gradient-to-b from-[#111] to-black w-full pt-24 pb-10 px-6 border-t border-white/5">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="grid lg:grid-cols-4 gap-10 pb-14 border-b border-white/5">
+        <div class="lg:col-span-2">
+          <img src="img/mog.png" alt="لوگو موج مانا" class="w-44 mb-6 opacity-85 drop-shadow-[0_0_15px_rgba(212,175,55,0.20)]">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">موج مانا</h2>
+          <p class="text-gray-400 text-sm md:text-base leading-8 font-light text-justify max-w-2xl">
+            موج مانا ارائه‌دهنده خدمات تخصصی مجالس ترحیم با تمرکز بر احترام، نظم، کیفیت اجرایی و طراحی متین است. ما تلاش می‌کنیم بخشی از دغدغه‌های اجرایی خانواده را در روزهای سوگواری کاهش دهیم.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-white font-bold text-lg mb-5">دسترسی سریع</h3>
+          <ul class="space-y-3 text-sm">
+            <li><a href="index.html" class="text-gray-400 hover:text-[#d4af37] transition-colors">خانه</a></li>
+            <li><a href="tarhim-services.html" class="text-gray-400 hover:text-[#d4af37] transition-colors">خدمات مجالس ترحیم</a></li>
+            <li><a href="gallery.html" class="text-gray-400 hover:text-[#d4af37] transition-colors">گالری</a></li>
+            <li><a href="about.html" class="text-gray-400 hover:text-[#d4af37] transition-colors">درباره ما</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-[#d4af37] transition-colors">تماس با ما</a></li>
+            <li><a href="order.html" class="text-gray-400 hover:text-[#d4af37] transition-colors">ثبت سفارش</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-white font-bold text-lg mb-5">ارتباط</h3>
+          <ul class="space-y-3 text-sm text-gray-400">
+            <li><a href="tel:02126117883" class="hover:text-[#d4af37] transition-colors" dir="ltr">021-26117883</a></li>
+            <li><a href="tel:09121234567" class="hover:text-[#d4af37] transition-colors" dir="ltr">0912-123-4567</a></li>
+            <li><a href="mailto:info@mojmana.com" class="hover:text-[#d4af37] transition-colors">info@mojmana.com</a></li>
+            <li>تهران، خیابان نمونه، کوچه نمونه، پلاک ۱۲</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 py-10">
+        <div class="bg-[#111] border border-white/5 rounded-2xl p-6 text-center">
+          <span class="text-gray-500 text-xs mb-2 block">شماره تماس</span>
+          <a href="tel:02126117883" class="text-[#d4af37] text-2xl font-bold hover:text-white transition-colors" dir="ltr">021-26117883</a>
+        </div>
+
+        <div class="bg-[#111] border border-white/5 rounded-2xl p-6 text-center">
+          <span class="text-gray-500 text-xs mb-2 block">موبایل</span>
+          <a href="tel:09121234567" class="text-[#d4af37] text-2xl font-bold hover:text-white transition-colors" dir="ltr">0912-123-4567</a>
+        </div>
+
+        <div class="bg-[#111] border border-white/5 rounded-2xl p-6 text-center">
+          <span class="text-gray-500 text-xs mb-2 block">پاسخ‌گویی</span>
+          <p class="text-[#d4af37] text-xl font-bold">همه‌روزه</p>
+        </div>
+      </div>
+
+      <div class="gold-line my-8"></div>
+
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-right">
+        <p class="text-gray-500 text-sm">© تمامی حقوق این وب‌سایت برای موج مانا محفوظ است.</p>
+        <a href="#"><p class="text-blue-300 text-sm">طراحی شده توسط  تیم تخصصی mmd cod</p></a>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>
